@@ -12,11 +12,14 @@
 
 # ifndef FT_LS_H
 # define FT_LS_H
-# include "../libft/libft.h"
+# include "libft.h"
 # include <stdio.h>
 # include <string.h>
-#include <dirent.h>
-# define FLAGS "-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1"
+# include <dirent.h>
+# define CLRW_FLAGS "C1l"
+# define SORT_FLAGS "tfUXS"
+# define REST_FLAGS "-ABFGHLOPRTWabcdeghikmnopqrsuwx"
+# define N_REST_FLAGS 31
 
 struct      s_node
 {
@@ -27,14 +30,12 @@ struct      s_node
     // s_nodes *next;
 }           t_node;
 
-enum e_sort{
-    TIME,
-    UNSET,
-    NAME
-};
-
 typedef struct s_flags{
-    enum e_sort sort; 
+    char clrw;
+    char sort;
+    char rest[N_REST_FLAGS];
 }               t_flags;
+
+int     parse_flags(t_flags *flags, int argc, char **argv);
 
 #endif
