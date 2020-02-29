@@ -19,6 +19,8 @@ t_flags *init_flags(void)
 
     flags = (t_flags*)malloc(sizeof(t_flags));
     ft_bzero(flags->rest, N_REST_FLAGS);
+    flags->sort = 'X';
+    flags->col = 1;
     return (flags);
 }
 

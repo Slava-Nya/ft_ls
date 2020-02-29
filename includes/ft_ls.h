@@ -16,9 +16,9 @@
 # include <stdio.h>
 # include <string.h>
 # include <dirent.h>
-# define CLRW_FLAGS "C1l"
+# define ROW_FLAGS "log1"
 # define SORT_FLAGS "tfUXS"
-# define REST_FLAGS "-ABFGHLOPRTWabcdeghikmnopqrsuwx"
+# define REST_FLAGS "-ABCFGHLOPRTWabcdeghiklmnopqrsuwx1"
 # define N_REST_FLAGS 31
 
 struct      s_node
@@ -31,7 +31,7 @@ struct      s_node
 }           t_node;
 
 typedef struct s_flags{
-    char clrw;
+    char col;
     char sort;
     char rest[N_REST_FLAGS];
 }               t_flags;
