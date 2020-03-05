@@ -89,7 +89,14 @@ SRC = char/ft_isalnum.c   \
       vector/ft_vector_del.c  \
       vector/ft_vector_init.c   \
       vector/ft_vector_push.c   \
-      vector/ft_vector_remove.c
+      vector/ft_vector_remove.c	\
+      search/ft_get_balance.c	\
+      search/ft_get_height.c	\
+      search/ft_insert_avl.c	\
+      search/ft_left_rotate.c	\
+      search/ft_new_node.c		\
+      search/ft_right_rotate.c
+
 
 INC = -I char		\
       -I env		\
@@ -100,7 +107,8 @@ INC = -I char		\
       -I num		\
       -I regex		\
       -I string		\
-      -I vector
+      -I vector		\
+      -I search
 
 OBJ_DIR = ./obj
 
@@ -114,6 +122,7 @@ CMP_DIR	:= $(OBJ_DIR)/char		\
 			$(OBJ_DIR)/regex	\
 			$(OBJ_DIR)/string	\
 			$(OBJ_DIR)/vector	\
+			$(OBJ_DIR)/search
 
 
 

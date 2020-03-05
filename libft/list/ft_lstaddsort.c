@@ -11,10 +11,9 @@
 /* ************************************************************************** */
 
 #include "list_lib.h"
-#include "math_lib.h"
 
-void	ft_lstaddsort(t_list **list, t_list *newlist, \
-		int (*cmp)(const void *, const void *, size_t))
+void	ft_lstaddsort(t_list **list, t_list *newlist, void *params, \
+		int (*cmp)(const void *, const void *, void *))
 {
 	t_list *prev;
 	t_list *head;
@@ -28,8 +27,7 @@ void	ft_lstaddsort(t_list **list, t_list *newlist, \
 	}
 	prev = NULL;
 	head = *list;
-	while (head && cmp(head->content, newlist->content, \
-	ft_min(head->content_size, newlist->content_size)) < 0)
+	while (head && cmp(newlist->content, head->content, params) > 0)
 	{
 		prev = head;
 		head = head->next;
