@@ -10,26 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
-#include <stdio.h>
-
-t_flags *init_flags(void)
-{
-    t_flags *flags;
-
-    flags = (t_flags*)malloc(sizeof(t_flags));
-    ft_bzero(flags->rest, N_REST_FLAGS);
-    flags->sort = 'X';
-    flags->col = 1;
-    return (flags);
-}
+#include "flags.h"
 
 int     main(int argc, char **argv)
 {
-    // struct dirent	*dirread;
-    // opendir("src");
-    t_flags *flags;
-    flags = init_flags();
-    printf("%d\n", parse_flags(flags, --argc, ++argv));
+	int		skip;
+	t_flags	*flags;
+
+	flags = init_flags();
+    skip = parse_flags(flags, --argc, ++argv);
     return (0);
 }
