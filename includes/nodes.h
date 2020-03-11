@@ -10,9 +10,9 @@ struct      s_nodes
 {
 	char    *path;
 	char    *error;
-	// struct  *stat;
-	// t_avl  *srcs;
-	// s_node *next;
+	 struct  *stat;
+	 t_avl  *srcs;
+	 s_node *next;
 };
 
 typedef struct s_nodes t_nodes;
