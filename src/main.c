@@ -19,5 +19,6 @@ int     main(int argc, char **argv)
 
 	flags = init_flags();
     skip = parse_flags(flags, --argc, ++argv);
+    parse_argc(skip, argv, flags);
     return (0);
 }

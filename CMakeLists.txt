@@ -24,6 +24,7 @@ add_executable(clion_ls
         src/main.c
         src/parse_flags/parse_flags.c
         src/parse_flags/init_flags.c
+        src/parse_args/parse_args.c
         includes/flags.h
         includes/nodes.h)
 
