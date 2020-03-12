@@ -21,11 +21,18 @@ add_subdirectory(${LIBFT_DIR})
 
 include_directories(includes)
 add_executable(clion_ls
-        src/main.c
-        src/parse_flags/parse_flags.c
-        src/parse_flags/init_flags.c
-        src/parse_args/parse_args.c
         includes/flags.h
-        includes/nodes.h)
+        src/flags/parse_flags.c
+        src/flags/init_flags.c
+        includes/nodes.h
+        src/nodes/cmp_nodes.c
+        src/nodes/get_node.c
+        src/nodes/get_error_node.c
+        src/nodes/cmp_srcs.c
+        src/nodes/get_srcs.c
+        includes/ls.h
+        src/main.c
+        src/parse_args.c
+        )
 
 target_link_libraries(${PROJECT_NAME} ft)

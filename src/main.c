@@ -10,15 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "flags.h"
+#include "ls.h"
 
 int     main(int argc, char **argv)
 {
 	int		skip;
 	t_flags	*flags;
+	t_list	*nodes;
 
 	flags = init_flags();
     skip = parse_flags(flags, --argc, ++argv);
-    parse_argc(skip, argv, flags);
+    nodes = parse_args(argc, argv, skip, flags);
     return (0);
 }

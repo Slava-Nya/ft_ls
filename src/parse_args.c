@@ -6,34 +6,25 @@
 /*   By: slavanya <slavanya@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 22:50:11 by slavanya          #+#    #+#             */
-/*   Updated: 2020/03/11 23:44:57 by slavanya         ###   ########lyon.fr   */
+/*   Updated: 2020/03/11 22:16:41 by slavanya         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <nodes.h>
-#include "ft_ls.h"
+#include "nodes.h"
+#include "flags.h"
+#include "str_lib.h"
+#include "mem_lib.h"
+#include "list_lib.h"
+#include <dirent.h>
+#include <errno.h>
+#include <stdio.h>
+//
+//void	save_argv(t_nodes *nodes,  struct stat info, char *argv)
+//{
+//
+//}
 
-void	save_file(t_nodes *nodes, struct stat info, char *argv)
-{
-	while (nodes)
-		nodes = nodes->next;
-	ft_strcpy(nodes->path, argv);
-	ft_strcpy(nodes->error, "NULL");
-	nodes->stat = info;
-	ft_strcpy((nodes->avl)->srcs, "NULL");
-}
-
-void	save_dir(t_nodes *nodes, struct stat *srcs, struct stat info, char *path)
-{
-	while (nodes)
-		nodes = nodes->next;
-	nodes->path = path;
-	ft_strcpy(nodes->path, path);
-	ft_strcpy(nodes->error, "NULL");
-	nodes->srcs = srcs;
-}
-
-int 	read_dir(t_nodes *nodes, char *argv)
+int 	read_dir(t_node *nodes, char *argv) // Енто должно быть в get_srcs
 {
 	DIR		*dir;
 	struct	dirent *srcs;
@@ -53,7 +44,6 @@ int 	read_dir(t_nodes *nodes, char *argv)
 			ft_strcat(path, srcs->d_name);
 			stat(srcs->d_name, &info);
 			nodes->info = info;
-			save_dir(nodes, srcs, info, path);
 		}
 	}
 	return (0);
@@ -63,7 +53,7 @@ int 	read_dir(t_nodes *nodes, char *argv)
  * flags_rest[18, 23, 25, 26] --- d, k, m, n
 */
 
-void	read_argv(t_nodes *nodes, t_flags *flags, char *argv)
+void	read_argv(t_node *nodes, t_flags *flags, char *argv) //Ето должно быть в get_node
 {
 	int		type;
 	struct	stat info;
@@ -89,19 +79,19 @@ void	read_argv(t_nodes *nodes, t_flags *flags, char *argv)
 	}
 	else
 	{
-		save_file(nodes, info, argv);
-			printf("thats file\n");
+		save_argv(nodes, info, argv);
+		printf("thats file\n");
 	}
 }
 
-void    parse_args(int cnt, int argc, char **argv, t_flags *flags)
+t_list		*parse_args(int argc, char **argv, int skip, t_flags *flags) //Ето должно быть туть
 {
-	t_nodes *nodes;
+	t_node *nodes;
 
-	nodes = (t_nodes *) ft_xmalloc(sizeof(t_nodes));
-	while (cnt < argc)
+	nodes = (t_node *) ft_xmalloc(sizeof(t_node));
+	while (skip < argc)
 	{
-		read_argv(nodes, flags, argv[cnt]);
-		cnt++;
+		read_argv(nodes, flags, argv[skip]);
+		skip++;
 	}
 }

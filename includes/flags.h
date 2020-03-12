@@ -9,11 +9,14 @@
 # define REST_FLAGS "-ABCFGHLOPRTWabcdeghiklmnopqrsuwx1"
 # define N_REST_FLAGS 31
 
-typedef struct s_flags{
+struct	s_flags
+{
 	char col;
 	char sort;
 	char rest[N_REST_FLAGS];
-}               t_flags;
+};
+
+typedef struct s_flags t_flags;
 
 t_flags			*init_flags(void);
 int				parse_flags(t_flags *flags, int argc, char **argv);
