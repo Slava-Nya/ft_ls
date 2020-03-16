@@ -38,6 +38,7 @@ add_executable(clion_ls
         includes/ls.h
         src/main.c
         src/parse_args.c
-        )
+        src/print_args.c
+        includes/print.h)
 
 target_link_libraries(${PROJECT_NAME} ft)
