@@ -15,7 +15,6 @@ struct					s_node
 	char				*error;
 	struct stat			info;
 	t_avl 				*srcs;
-	struct s_node		*next;
 };
 
 typedef struct s_node	t_node;
@@ -74,7 +73,6 @@ int		cmp_nodes(t_node *node1, t_node *node2, t_flags *flags);
  * Функция возвращает разницу между сравниваемыми значениями, пример ft_strcmp
  *
  */
-t_avl	*get_srcs(DIR *dir, t_flags *flags); // Уже написанно
-int 	cmp_srcs(struct stat src1, struct stat src2, t_flags *flags); //Почти как cmp_nodes
+
 
 #endif //NODES_H
