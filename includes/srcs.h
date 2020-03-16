@@ -10,6 +10,7 @@
 #include "search_lib.h"
 #include "flags.h"
 #define MAX_FILENAME 256
+#define MAX_PATHLEN 256
 
 struct s_src
 {
@@ -19,7 +20,8 @@ struct s_src
 
 typedef struct s_src t_src;
 
-t_avl	*get_srcs(DIR *dir, char *path, t_flags *flags); // Уже написанно
+t_src	*init_src(char *path);
+t_avl	*get_srcs(DIR *dir, char *argv, t_flags *flags); // Уже написанно
 int 	cmp_srcs(t_src  src1, t_src src2, t_flags *flags); //Почти как cmp_nodes
 
 #endif //SRCS_H

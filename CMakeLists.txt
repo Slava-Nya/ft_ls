@@ -28,9 +28,13 @@ add_executable(clion_ls
         src/nodes/cmp_nodes.c
         src/nodes/get_node.c
         src/nodes/get_error_node.c
+        src/nodes/get_file_node.c
+        src/nodes/get_dir_node.c
+        src/nodes/init_node.c
         includes/srcs.h
-        src/nodes/cmp_srcs.c
-        src/nodes/get_srcs.c
+        src/srcs/cmp_srcs.c
+        src/srcs/get_srcs.c
+        src/srcs/init_src.c
         includes/ls.h
         src/main.c
         src/parse_args.c

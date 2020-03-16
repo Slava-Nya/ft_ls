@@ -35,6 +35,10 @@ t_node	*get_error_node(char *path);
  *
  * Функция возвращает созданную ноду
  */
+
+t_node 	*init_node(char *argv, struct stat info);
+t_node 	*get_file_node(char *argv, struct stat info);
+t_node	*get_dir_node(char *argv, struct stat info, t_flags *flags);
 t_node	*get_node(char *argv, t_flags *flags);
 /*
  * Функция принимает аргумент переданный из parse_args и структуру флагов
