@@ -36,6 +36,7 @@ t_node	*get_error_node(char *path);
 t_node 	*get_file_node(char *argv, struct stat info, t_flags *flags);
 t_node	*get_dir_node(char *argv, struct stat info, t_flags *flags);
 t_node	*get_node(char *argv, t_flags *flags);
+void	del_node(t_node **node);
 /*
  * Функция принимает аргумент переданный из parse_args и структуру флагов
  *

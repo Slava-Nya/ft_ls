@@ -38,6 +38,6 @@ add_executable(clion_ls
         src/main.c
         src/parse_args.c
         src/print_args.c
-        includes/print.h)
+        includes/print.h src/srcs/del_src.c src/nodes/del_node.c src/print/print_node.c src/print/print_dir_node.c src/print/print_file_node.c src/print/print_error_node.c src/print/print_srcs.c)
 
 target_link_libraries(${PROJECT_NAME} ft)
