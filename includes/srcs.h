@@ -20,7 +20,7 @@ struct s_src
 
 typedef struct s_src t_src;
 
-t_src	*init_src(char *path);
+t_src	*init_src(char name[MAX_FILENAME], struct stat info);
 t_avl	*get_srcs(DIR *dir, char *argv, t_flags *flags); // Уже написанно
 int 	cmp_srcs(t_src  src1, t_src src2, t_flags *flags); //Почти как cmp_nodes
 

@@ -21,6 +21,7 @@ t_avl			*get_srcs(DIR *dir, char *argv, t_flags *flags)
 	char			path[MAX_PATHLEN];
 	size_t 			len;
 	t_avl			*srcs;
+	struct stat info;
 
 	srcs = NULL;
 	len = get_path(path, argv);
@@ -28,7 +29,8 @@ t_avl			*get_srcs(DIR *dir, char *argv, t_flags *flags)
 	{
 		path[len] = '\0';
 		ft_strcat(path, dir_read->d_name);
-		srcs = ft_insert_avl(srcs, init_src(path), flags, &cmp_srcs);
+		lstat(path, &info);
+		srcs = ft_insert_avl(srcs, init_src(dir_read->d_name, info), flags, &cmp_srcs);
 	}
 	return (srcs);
 }

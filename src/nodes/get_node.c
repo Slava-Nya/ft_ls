@@ -21,5 +21,5 @@ t_node			*get_node(char *argv, t_flags *flags)
 	if (!flags->rest[18] && type == S_IFDIR)
 		return (get_dir_node(argv, info, flags));
 	else
-		return (get_file_node(argv, info));
+		return (get_file_node(argv, info, flags));
 }
