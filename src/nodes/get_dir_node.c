@@ -5,17 +5,18 @@
 #include "nodes.h"
 #include "srcs.h"
 #include <dirent.h>
-#include <libft.h>
+#include "str_lib.h"
+#include "mem_lib.h"
 
 static t_node  *init_node(char *argv, struct stat info)
 {
 	t_node *new_node;
 
-	new_node = ft_xmalloc(sizeof(t_node));
+	new_node = (t_node*)ft_xmalloc(sizeof(t_node));
 	new_node->info = info;
 	ft_strcpy(new_node->path, argv);
 	new_node->srcs = NULL;
-	new_node->error = NULL;
+	new_node->error = 0;
 	return(new_node);
 }
 

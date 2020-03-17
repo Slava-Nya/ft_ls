@@ -30,14 +30,22 @@ add_executable(clion_ls
         src/nodes/get_error_node.c
         src/nodes/get_file_node.c
         src/nodes/get_dir_node.c
+        src/nodes/del_node.c
         includes/srcs.h
         src/srcs/cmp_srcs.c
         src/srcs/get_srcs.c
         src/srcs/init_src.c
+        src/srcs/del_src.c
         includes/ls.h
         src/main.c
         src/parse_args.c
         src/print_args.c
-        includes/print.h src/srcs/del_src.c src/nodes/del_node.c src/print/print_node.c src/print/print_dir_node.c src/print/print_file_node.c src/print/print_error_node.c src/print/print_srcs.c)
+        includes/print.h
+        src/print/print_node.c
+        src/print/print_dir_node.c
+        src/print/print_file_node.c
+        src/print/print_error_node.c
+        src/print/print_srcs.c
+        )
 
 target_link_libraries(${PROJECT_NAME} ft)

@@ -3,7 +3,7 @@
 //
 
 #include <nodes.h>
-#include <libft.h>
+#include "mem_lib.h"
 
 static t_node *init_file_node(void)
 {

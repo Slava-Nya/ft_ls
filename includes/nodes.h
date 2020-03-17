@@ -9,7 +9,7 @@
 struct					s_node
 {
 	char				path[MAX_PATHLEN];
-	char				*error;
+	int					error;
 	struct stat			info;
 	t_avl 				*srcs;
 };

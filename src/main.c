@@ -19,12 +19,10 @@ int     main(int argc, char **argv)
 	int		skip;
 	t_flags	*flags;
 	t_list	*nodes;
-	t_node *tmp;
 
 	flags = init_flags();
     skip = parse_flags(flags, --argc, ++argv);
     nodes = parse_args(argc, argv, skip, flags);
-    tmp = nodes->content;
-    ft_putstr("yeeeah");
+    print_args(&nodes, flags);
     return (0);
 }
