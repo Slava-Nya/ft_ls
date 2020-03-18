@@ -18,6 +18,7 @@ struct	s_flags
 
 typedef struct s_flags t_flags;
 
+void			del_flags(t_flags **flags);
 t_flags			*init_flags(void);
 int				parse_flags(t_flags *flags, int argc, char **argv);
 

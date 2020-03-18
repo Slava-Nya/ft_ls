@@ -11,7 +11,7 @@ static t_node *init_file_node(void)
 
 	new_node = ft_xmalloc(sizeof(t_node));
 	ft_bzero(new_node->path, MAX_PATHLEN);
-	new_node->error = NULL;
+	new_node->error = 0;
 	ft_bzero(&new_node->info, sizeof(struct stat));
 	new_node->srcs = NULL;
 	return(new_node);
@@ -24,7 +24,8 @@ t_node 	*get_file_node(char *argv, struct stat info, t_flags *flags)
 	if (!file_node)
 		file_node = init_file_node();
 	file_node->srcs = ft_insert_avl(file_node->srcs,\
-	init_src(argv, info), flags, &cmp_srcs);
+	init_src(argv, info), flags, (int (*)(const void *, const void *, \
+										  void *)) &cmp_srcs);
 	if (!file_node->srcs->left && !file_node->srcs->right)
 		return (file_node);
 	return (NULL);

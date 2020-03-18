@@ -24,6 +24,7 @@ add_executable(clion_ls
         includes/flags.h
         src/flags/parse_flags.c
         src/flags/init_flags.c
+        src/flags/del_flags.c
         includes/nodes.h
         src/nodes/cmp_nodes.c
         src/nodes/get_node.c

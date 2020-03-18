@@ -5,9 +5,10 @@
 #include <stdlib.h>
 #include "nodes.h"
 
-void	del_node(t_node **node)
+void	del_node(t_node **node, size_t size)
 {
-	//деструктор авл дерева
+	(void)size;
+	ft_del_avl(&(*node)->srcs, (void (*)(void *)) &del_src);
 	free(*node);
 	*node = NULL;
 }
