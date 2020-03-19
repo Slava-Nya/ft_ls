@@ -20,10 +20,10 @@ static void	walk_srcs(t_avl *srcs, char dir_path[MAX_PATHLEN], t_flags *flags, t
 {
 	if (!srcs)
 		return ;
-	walk_srcs(flags->rest[28] ? srcs->right : srcs->left, dir_path, flags, attr);
+	walk_srcs(srcs->left, dir_path, flags, attr);
 	if (!get_dir_path(srcs->content, dir_path))
 		print_dir_node(get_dir_node(dir_path, ((t_src*)srcs->content)->info, flags), flags, attr);
-	walk_srcs(flags->rest[28] ? srcs->left : srcs->right, dir_path, flags, attr);
+	walk_srcs(srcs->right, dir_path, flags, attr);
 }
 
 static void	print_dir_head(char *path, t_print *attr)

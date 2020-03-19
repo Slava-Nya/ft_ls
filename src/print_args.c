@@ -12,8 +12,8 @@ static t_print *init_print(t_list *nodes)
 	t_print *attr;
 
 	attr = (t_print*)ft_xmalloc(sizeof(t_print));
-	attr.need_head = nodes->next ? 1 : 0;
-	attr.need_space = 0;
+	attr->need_head = nodes->next ? 1 : 0;
+	attr->need_space = 0;
 	return (attr);
 }
 
