@@ -17,10 +17,15 @@ int parse_flags(t_flags *flags, int argc, char **argv)
 	int cnt;
 	char *flags_str;
 
-	cnt = 0;
+	cnt = 1;
 	while (cnt < argc && *argv[cnt] == '-' && *(argv[cnt] + 1))
 	{
 		flags_str = argv[cnt] + 1;
+		if (*flags_str == '-' && !*(flags_str + 1))
+		{
+			cnt++;
+			break ;
+		}
 		while (*flags_str)
 		{
 			if (get_flag(flags, *flags_str))

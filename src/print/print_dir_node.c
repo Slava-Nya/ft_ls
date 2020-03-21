@@ -22,7 +22,7 @@ static void	walk_srcs(t_avl *srcs, char dir_path[MAX_PATHLEN], t_flags *flags, t
 		return ;
 	walk_srcs(srcs->left, dir_path, flags, attr);
 	if (!get_dir_path(srcs->content, dir_path))
-		print_dir_node(get_dir_node(dir_path, ((t_src*)srcs->content)->info), flags, attr);
+		print_node(get_dir_node(dir_path, ((t_src*)srcs->content)->info), flags, attr);
 	walk_srcs(srcs->right, dir_path, flags, attr);
 }
 

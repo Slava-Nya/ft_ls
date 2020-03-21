@@ -27,10 +27,16 @@ t_avl			*get_srcs(DIR *dir, char *argv, t_flags *flags)
 	len = get_path(path, argv);
 	while ((dir_read = readdir(dir)))
 	{
-		path[len] = '\0';
-		ft_strcat(path, dir_read->d_name);
-		lstat(path, &info);
-		srcs = ft_insert_avl(srcs, init_src(dir_read->d_name, info), flags, &cmp_srcs);
+		if ((flags->all[15]) || \
+			(flags->all[1] && ft_strcmp(dir_read->d_name, ".") && \
+				ft_strcmp(dir_read->d_name, "..")) || \
+			dir_read->d_name[0] != '.')
+		{
+			path[len] = '\0';
+			ft_strcat(path, dir_read->d_name);
+			lstat(path, &info);
+			srcs = ft_insert_avl(srcs, init_src(dir_read->d_name, info), flags, &cmp_srcs);
+		}
 	}
 	return (srcs);
 }

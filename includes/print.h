@@ -17,16 +17,15 @@ struct s_errors{
 };
 
 typedef struct s_print	t_print;
-typedef struct s_errors t_errors;
 
-t_errors g_errors[N_ERRORS] = {
+static struct s_errors g_errors[N_ERRORS] = {
 		{2, "cannot access"},
 		{13, "cannot open directory"}
 };
 
 void	print_srcs(t_avl *srcs, t_flags *flags);
 void	print_srcs_col(t_avl *srcs);
-void	print_srcs_1perl(t_avl *srcs);
+void	print_srcs_1perl(t_avl *srcs, t_flags *flags);
 void	print_srcs_line(t_avl *srcs, t_flags *flags);
 
 void	print_node(t_node *node, t_flags *flags, t_print *attr);

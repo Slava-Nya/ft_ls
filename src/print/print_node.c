@@ -25,7 +25,7 @@ void	print_node(t_node *node, t_flags *flags, t_print *attr)
 
 	if (*node->path)
 	{
-		if (get_dir_srcs(node, flags, attr))
+		if (!flags->all[18] && get_dir_srcs(node, flags, attr))
 			return ;
 		print_dir_node(node, flags, attr);
 	}

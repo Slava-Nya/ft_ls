@@ -10,7 +10,7 @@ t_node			*get_node(char *argv, t_flags *flags)
 	unsigned int	type;
 	struct			stat info;
 
-	if (flags->all[18] || flags->all[23] || flags->all[25] || flags->all[26])
+	if (flags->all[21] || flags->all[25] || flags->all[27] || flags->all[28])
 		lstat(argv, &info);
 	else if (stat(argv, &info))
 	{
@@ -23,7 +23,7 @@ t_node			*get_node(char *argv, t_flags *flags)
 		return (NULL);
 	}
 	type = info.st_mode & S_IFMT;
-	if (!flags->all[18] && type == S_IFDIR)
+	if (type == S_IFDIR)
 		return (get_dir_node(argv, info));
 	else
 		return (get_file_node(argv, info, flags));

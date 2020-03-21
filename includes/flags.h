@@ -4,15 +4,10 @@
 
 #ifndef FLAGS_H
 #define FLAGS_H
-# define PRINT_FLAGS "Clog1x"
-# define SORT_FLAGS "ctufUXS"
 # define FLAGS "-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1"
 # define N_FLAGS 38
-# define N_ENABLE_F 2
-# define N_DISABLE_F 6
-
-int g_enable_f[N_ENABLE_F] = {13, 15};
-int g_disable_f[N_DISABLE_F] = {21, 25, 28, 17, 33, 34};
+# define N_SORT_FLAGS 6
+# define N_PRINT_FLAGS 7
 
 enum e_print_flags
 {
@@ -31,6 +26,20 @@ enum e_sort_flags
 	f_size // S flag, sort by size
 };
 
+struct s_map_sort
+{
+	int index;
+	char c;
+	enum e_sort_flags map;
+};
+
+struct s_map_print
+{
+	int index;
+	char c;
+	enum e_print_flags map;
+};
+
 struct	s_flags
 {
 	enum e_print_flags print;
@@ -38,9 +47,28 @@ struct	s_flags
 	char all[N_FLAGS];
 };
 
+static struct s_map_sort g_map_sort[N_SORT_FLAGS] =
+{
+		{17, 'c', f_ctime},
+		{33, 't', f_mtime},
+		{34, 'u', f_atime},
+		{20, 'f', f_unset},
+		{13, 'U', f_unset},
+		{11, 'S', f_size}
+};
+
+static struct s_map_print g_map_print[N_PRINT_FLAGS] =
+{
+		{3, 'C', f_col},
+		{21, 'g', f_1perl},
+		{25, 'l', f_1perl},
+		{27, 'n', f_1perl},
+		{28, 'o', f_1perl},
+		{37, '1', f_1perl},
+		{36, 'x', f_line}
+};
+
 typedef struct s_flags t_flags;
-typedef enum e_sort_flags t_sort_flags;
-typedef enum e_print_flags t_print_flags;
 
 void			del_flags(t_flags **flags);
 t_flags			*init_flags(void);

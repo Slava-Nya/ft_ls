@@ -22,16 +22,15 @@ t_list		*parse_args(int argc, char **argv, int skip, t_flags *flags) //Ето д
 	nodes = NULL;
 	if (skip == argc)
 	{
-		//дописать случай когда не передано аргументов или переданы только флаги (в таком случае создается только одна нода с текущей дерикторией "."
+		node = get_node(".", flags);
+		ft_lstaddsort(&nodes, ft_lstnew(node, sizeof(t_node)), flags, &cmp_nodes);
 	}
 	else
 	{
 		while (skip < argc)
 		{
 			node = get_node(argv[skip], flags);
-			ft_lstaddsort(&nodes, ft_lstnew(node, sizeof(t_node)), flags, \
-						  (int (*)(const void *, const void *, \
-								   void *)) &cmp_nodes);
+			ft_lstaddsort(&nodes, ft_lstnew(node, sizeof(t_node)), flags, &cmp_nodes);
 			skip++;
 		}
 	}

@@ -4,69 +4,56 @@
 
 #include "flags.h"
 
-static void		apply_c_u_flag(t_flags *flags, char c)
-{
-	if (!flags->all[25])
-	{
-		if (c == 'c')
-			flags->sort = f_ctime;
-		else
-			flags->sort = f_atime;
-	}
-}
-
 static void		apply_f_flag(t_flags *flags)
 {
 	int cnt;
 
 	cnt = 0;
-	while (cnt < N_ENABLE_F)
-		flags->all[g_enable_f[cnt++]] = 1;
+	while (cnt < N_SORT_FLAGS)
+		flags->all[g_map_sort[cnt++].index] = 0;
 	cnt = 0;
-	while (cnt < N_DISABLE_F)
-		flags->all[g_disable_f[cnt++]] = 1;
+	while (cnt < N_PRINT_FLAGS)
+		flags->all[g_map_print[cnt++].index] = 0;
+	flags->all[13] = 1;
+	flags->all[15] = 1;
+	flags->all[20] = 1;
+	flags->print = f_col;
 	flags->sort = f_unset;
 }
 
-static int	check_sort_flags(t_flags *flags, char c)
+static int	set_sort_flags(t_flags *flags, char c)
 {
 	int cnt;
 
 	cnt = 0;
-	while (SORT_FLAGS[cnt] && 	SORT_FLAGS[cnt] != c)
+	while (cnt < N_SORT_FLAGS && g_map_sort[cnt].c != c)
 		cnt++;
-	if (SORT_FLAGS[cnt] == c)
+	if (cnt < N_SORT_FLAGS)
 	{
-		if (c == 'X')
-			flags->sort = f_ascii;
-		else if (c == 't')
-			flags->sort= f_mtime;
-		else if (c == 'S')
-			flags->sort = f_size;
+		if (c == 'c' || c == 'u')
+		{
+			if (flags->all[25])
+				flags->sort = g_map_sort[cnt].map;
+		}
 		else if (c == 'f')
 			apply_f_flag(flags);
 		else
-			apply_c_u_flag(flags, c);
+			flags->sort = g_map_sort[cnt].map;
 		return (0);
 	}
 	return (1);
 }
 
-static int	check_print_flag(t_flags *flags, char c)
+static int	set_print_flag(t_flags *flags, char c)
 {
 	int cnt;
 
 	cnt = 0;
-	while (PRINT_FLAGS[cnt] && PRINT_FLAGS[cnt] != c)
+	while (cnt < N_PRINT_FLAGS && g_map_print[cnt].c != c)
 		cnt++;
-	if (PRINT_FLAGS[cnt] == c)
+	if (cnt < N_PRINT_FLAGS)
 	{
-		if (c == 'C')
-			flags->print = f_col;
-		else if (c == 'x')
-			flags->print = f_line;
-		else
-			flags->print = f_1perl;
+		flags->print = g_map_print[cnt].map;
 		return (0);
 	}
 	return (1);
@@ -76,13 +63,13 @@ int	get_flag(t_flags *flags, char c)
 {
 	int cnt;
 
-	cnt = 0;
+	cnt = 1;
 	while (cnt < N_FLAGS && FLAGS[cnt] != c)
 		cnt++;
 	if (cnt < N_FLAGS)
 	{
-		if (check_print_flag(flags, c))
-			check_sort_flags(flags, c);
+		if (set_print_flag(flags, c))
+			set_sort_flags(flags, c);
 		(flags->all)[cnt] = FLAGS[cnt];
 		return (0);
 	}

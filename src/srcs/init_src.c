@@ -2,9 +2,9 @@
 // Created by youpaw on 16.03.2020.
 //
 
-#include <libft.h>
 #include "srcs.h"
 #include "mem_lib.h"
+#include "str_lib.h"
 
 t_src	*init_src(char name[MAX_FILENAME], struct stat info)
 {
