@@ -22,7 +22,7 @@ static void	walk_srcs(t_avl *srcs, char dir_path[MAX_PATHLEN], t_flags *flags, t
 		return ;
 	walk_srcs(srcs->left, dir_path, flags, attr);
 	if (!get_dir_path(srcs->content, dir_path))
-		print_dir_node(get_dir_node(dir_path, ((t_src*)srcs->content)->info, flags), flags, attr);
+		print_dir_node(get_dir_node(dir_path, ((t_src*)srcs->content)->info), flags, attr);
 	walk_srcs(srcs->right, dir_path, flags, attr);
 }
 
@@ -35,7 +35,6 @@ static void	print_dir_head(char *path, t_print *attr)
 		ft_putstr(path);
 		ft_putendl(":");
 	}
-	attr->need_space = 1;
 }
 
 void	print_dir_node(t_node *node, t_flags *flags, t_print *attr)
