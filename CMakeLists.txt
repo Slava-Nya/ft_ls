@@ -28,7 +28,6 @@ add_executable(clion_ls
         includes/nodes.h
         src/nodes/cmp_nodes.c
         src/nodes/get_node.c
-        src/nodes/get_error_node.c
         src/nodes/get_file_node.c
         src/nodes/get_dir_node.c
         src/nodes/del_node.c
@@ -45,7 +44,7 @@ add_executable(clion_ls
         src/print/print_node.c
         src/print/print_dir_node.c
         src/print/print_file_node.c
-        src/print/print_error_node.c
+        src/print/print_error.c
         src/print/print_srcs.c
         src/print/print_srcs_col.c
         src/print/print_srcs_row.c)

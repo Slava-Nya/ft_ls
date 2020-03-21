@@ -4,7 +4,8 @@
 
 #include "srcs.h"
 
-int 	cmp_srcs(t_src  src1, t_src src2, t_flags *flags)
+int 	cmp_srcs(t_src  *src1, t_src *src2, t_flags *flags)
 {
+
 	return (1);
 }

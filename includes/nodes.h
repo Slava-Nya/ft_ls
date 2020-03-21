@@ -9,32 +9,14 @@
 struct					s_node
 {
 	char				path[MAX_PATHLEN];
-	int					error;
 	struct stat			info;
 	t_avl 				*srcs;
 };
 
 typedef struct s_node	t_node;
 
-t_node	*get_error_node(char *path);
-/*
- * Функция принимает на вход переданный в аргументы и проверенный в get_node невалидный путь
- * В переменной errno хранится код ошибки который привел к вызову функции
- *
- * Функция создает новую ноду, в поле path записывает принятый аргумент, в поле error
- * записывает сгенерированную строку выводимой ошибки
- * Примеры строк ошибок смотри в баш ^_^
- * Строка ошибки генерируется вручную исходя из кода ошибки с помощью функции nstrjoin
- * (есть еще стандартные функции чтобы получить строку ошибки из кода эррно, надо прочекать подойдет ли нам,
- * создам на тебя таску прочекать этот момент)
- *
- * В остальные поля записывается null
- *
- * Функция возвращает созданную ноду
- */
-
 t_node 	*get_file_node(char *argv, struct stat info, t_flags *flags);
-t_node	*get_dir_node(char *argv, struct stat info, t_flags *flags);
+t_node	*get_dir_node(char *argv, struct stat info);
 t_node	*get_node(char *argv, t_flags *flags);
 void	del_node(t_node **node, size_t size);
 /*

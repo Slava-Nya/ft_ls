@@ -11,7 +11,6 @@ static t_node *init_file_node(void)
 
 	new_node = ft_xmalloc(sizeof(t_node));
 	ft_bzero(new_node->path, MAX_PATHLEN);
-	new_node->error = 0;
 	ft_bzero(&new_node->info, sizeof(struct stat));
 	new_node->srcs = NULL;
 	return(new_node);

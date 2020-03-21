@@ -1,7 +1,9 @@
 
 #include "flags.h"
 #include "nodes.h"
+#include "print.h"
 #include <errno.h>
+#include <stddef.h>
 
 t_node			*get_node(char *argv, t_flags *flags)
 {
@@ -16,10 +18,13 @@ t_node			*get_node(char *argv, t_flags *flags)
 		lstat(argv, &info);
 	}
 	if (errno)
-		return (get_error_node(argv));
+	{
+		print_error(argv);
+		return (NULL);
+	}
 	type = info.st_mode & S_IFMT;
 	if (!flags->rest[18] && type == S_IFDIR)
-		return (get_dir_node(argv, info, flags));
+		return (get_dir_node(argv, info));
 	else
 		return (get_file_node(argv, info, flags));
 }

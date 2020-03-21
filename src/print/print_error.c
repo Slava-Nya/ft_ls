@@ -6,7 +6,7 @@
 #include "print.h"
 #include <string.h>
 
-void	print_error_node(t_node *node)
+void	print_error(char *path)
 {
 	ft_putstr_fd("ls: cannot access '", 2);
 	ft_putstr_fd(node->path, 2);
