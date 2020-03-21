@@ -4,15 +4,25 @@
 
 #ifndef PRINT_H
 #define PRINT_H
-
 #include "nodes.h"
-
+# define N_ERRORS 2
 struct s_print{
 	int need_head;
 	int need_space;
 };
 
+struct s_errors{
+	int		code;
+	char	*str;
+};
+
 typedef struct s_print	t_print;
+typedef struct s_errors t_errors;
+
+t_errors g_errors[N_ERRORS] = {
+		{2, "cannot access"},
+		{13, "cannot open directory"}
+};
 
 void	print_srcs(t_avl *srcs, t_flags *flags);
 void	print_srcs_col(t_avl *srcs);

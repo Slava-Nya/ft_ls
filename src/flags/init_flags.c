@@ -11,7 +11,7 @@ t_flags *init_flags(void)
 
 	flags = (t_flags*)ft_xmalloc(sizeof(t_flags));
 	ft_bzero(flags->rest, N_REST_FLAGS);
-	flags->sort = 'X';
-	flags->col = 1;
+	flags->sort = f_ascii;
+	flags->print = f_col;
 	return (flags);
 }
