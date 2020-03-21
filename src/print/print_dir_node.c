@@ -44,7 +44,7 @@ void	print_dir_node(t_node *node, t_flags *flags, t_print *attr)
 
 	print_dir_head(node->path, attr);
 	print_srcs(node->srcs, flags);
-	if (flags->rest[10])
+	if (flags->all[10])
 	{
 		len = ft_strlen(node->path);
 		ft_strcpy(dir_path, node->path);

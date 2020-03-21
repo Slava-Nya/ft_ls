@@ -4,10 +4,15 @@
 
 #ifndef FLAGS_H
 #define FLAGS_H
-# define ROW_FLAGS "Clog1"
+# define PRINT_FLAGS "Clog1x"
 # define SORT_FLAGS "ctufUXS"
 # define FLAGS "-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1"
 # define N_FLAGS 38
+# define N_ENABLE_F 2
+# define N_DISABLE_F 6
+
+int g_enable_f[N_ENABLE_F] = {13, 15};
+int g_disable_f[N_DISABLE_F] = {21, 25, 28, 17, 33, 34};
 
 enum e_print_flags
 {
@@ -30,7 +35,7 @@ struct	s_flags
 {
 	enum e_print_flags print;
 	enum e_sort_flags sort;
-	char rest[N_FLAGS];
+	char all[N_FLAGS];
 };
 
 typedef struct s_flags t_flags;
@@ -40,5 +45,6 @@ typedef enum e_print_flags t_print_flags;
 void			del_flags(t_flags **flags);
 t_flags			*init_flags(void);
 int				parse_flags(t_flags *flags, int argc, char **argv);
+int				get_flag(t_flags *flags, char c);
 
 #endif //FLAGS_H
