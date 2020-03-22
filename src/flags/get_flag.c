@@ -16,7 +16,6 @@ static void		apply_f_flag(t_flags *flags)
 		flags->all[g_map_print[cnt++].index] = 0;
 	flags->all[13] = 1;
 	flags->all[15] = 1;
-	flags->all[20] = 1;
 	flags->print = f_col;
 	flags->sort = f_unset;
 }
@@ -32,7 +31,10 @@ static int	set_sort_flags(t_flags *flags, char c)
 	{
 		if (c == 'c' || c == 'u')
 		{
-			if (flags->all[25])
+			/*
+			 * Применить сортировку при активных флагах l и t, либо при неактивном флаге l
+			 */
+			if ((flags->all[25] && flags->all[33]) || !flags->all[25])
 				flags->sort = g_map_sort[cnt].map;
 		}
 		else if (c == 'f')
