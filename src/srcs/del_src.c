@@ -5,8 +5,7 @@
 #include <stdlib.h>
 #include "srcs.h"
 
-void	del_src(t_src **src)
+void	del_src(t_src *src)
 {
-	free(*src);
-	*src = NULL;
+	free(src);
 }

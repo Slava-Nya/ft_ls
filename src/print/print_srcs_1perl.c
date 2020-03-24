@@ -5,7 +5,7 @@
 #include "srcs.h"
 #include "str_lib.h"
 
-void	print_src(t_src *src)
+void print_src(t_src *src)
 {
 	ft_putendl(src->name);
 }

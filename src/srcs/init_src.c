@@ -12,6 +12,6 @@ t_src	*init_src(char name[MAX_FILENAME], struct stat info)
 
 		new_src = ft_xmalloc(sizeof(t_src));
 		new_src->info = info;
-		ft_strcat(new_src->name, name);
+		ft_strcpy(new_src->name, name);
 		return(new_src);
 }

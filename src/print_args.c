@@ -17,6 +17,12 @@ static t_print *init_print(t_list *nodes)
 	return (attr);
 }
 
+static t_print *del_print(t_print **attr)
+{
+	free(*attr);
+	*attr = NULL;
+}
+
 void		print_args(t_list *nodes, t_flags *flags)
 {
 	t_print	*attr;
@@ -32,4 +38,5 @@ void		print_args(t_list *nodes, t_flags *flags)
 		head = head->next;
 		ft_lstdelone(&nodes, (void (*)(void *, size_t)) &del_node);
 	}
+	del_print(&attr);
 }
