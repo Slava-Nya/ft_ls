@@ -6,6 +6,7 @@
 #include <print_line.h>
 #include <grp.h>
 #include <pwd.h>
+#include <libft.h>
 #include "srcs.h"
 #include "str_lib.h"
 
@@ -21,18 +22,18 @@
  *
  */
 
-void	print_src(t_src *src)
-{
-	print_mode(src->info.st_mode);
-}
 
-void	ft_max_struct_bezero(get_max_values *max)
+t_max_values *ft_max_struct_bezero()
 {
+	t_max_values *max;
+
+	max = ft_xmalloc(sizeof(t_max_values));
 	max->links = 0;
 	max->uid = 0;
-	max->guid = 0;
+	max->gid = 0;
 	max->size = 0;
 	max->date = 0;
+	return (max);
 }
 
 int 	get_max_len(t_max_values *max, struct stat info)
@@ -46,21 +47,30 @@ int 	get_max_len(t_max_values *max, struct stat info)
 		max->uid = uid_len;
 	if (gid_len > max->gid)
 		max->gid = gid_len;
-	if (info.st_nlink > max->links)+
+	if (info.st_nlink > max->links)
 		max->links = info.st_nlink;
 	if (info.st_size > max.size)
 		max->size = info.st_size;
 }
 
-		void	get_elements(t_avl *srcs, t_flags *flags, t_max_values *max)
+void	get_elements(t_avl *srcs, t_flags *flags, t_max_values *max)
 {
 	struct stat *tmp;
 
 	if (!srcs)
 		return ;
-	get_elements(srcs->left, flags);
-	tmp = srcs->content.info;
+	get_elements(srcs->left, flags, max);
+	tmp = ((t_src*)srcs->content)->info;
 	get_max_len(max, tmp);
 	print_src(srcs->content);
-	get_elements(srcs->right, flags);
+	get_elements(srcs->right, flags, max);
+}
+
+void	print_srcs_line(t_avl *srcs, t_flags *flags)
+{
+	t_max_values *max;
+
+
+	get_elements(srcs, flags, max);
+
 }
