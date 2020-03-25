@@ -35,7 +35,9 @@ t_avl			*get_srcs(DIR *dir, char *argv, t_flags *flags)
 			path[len] = '\0';
 			ft_strcat(path, dir_read->d_name);
 			lstat(path, &info);
-			srcs = ft_insert_avl(srcs, init_src(dir_read->d_name, info), flags, &cmp_srcs);
+			srcs = ft_insert_avl(srcs, \
+			ft_new_node(init_src(dir_read->d_name, info)), flags, \
+			(int (*)(const void *, const void *, void *)) &cmp_srcs);
 		}
 	}
 	return (srcs);
