@@ -52,6 +52,6 @@ add_executable(clion_ls
         src/print/line/print_srcs_line.c
         includes/print_col.h
         includes/print_line.h
-        src/print/line/print_mode.c)
+        src/print/line/print_mode.c src/print/col/get_max_name.c src/print/col/get_print_col.c)
 
 target_link_libraries(${PROJECT_NAME} ft)
