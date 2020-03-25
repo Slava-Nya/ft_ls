@@ -36,7 +36,7 @@ void		print_args(t_list *nodes, t_flags *flags)
 		nodes = head;
 		print_node(head->content, flags, attr);
 		head = head->next;
-		ft_lstdelone(&nodes, (void (*)(void *, size_t)) &del_node);
+		ft_lstdelone(&nodes, (void (*)(void *)) &del_node);
 	}
 	del_print(&attr);
 }

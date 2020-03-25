@@ -5,9 +5,8 @@
 #include <stdlib.h>
 #include "nodes.h"
 
-void	del_node(t_node *node, size_t size)
+void	del_node(t_node *node)
 {
-	(void)size;
 	ft_del_avl(&node->srcs, (void (*)(void *)) &del_src);
 	free(node);
 }
