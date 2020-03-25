@@ -30,4 +30,7 @@ void	print_dir_node(t_node *node, t_flags *flags, t_print *attr);
 void	print_file_node(t_node *node, t_flags *flags, t_print *attr);
 void	print_error(char *path);
 
+void	get_elements(t_avl *srcs, t_flags *flags);
+void	print_mode(int mode);
+
 #endif //PRINT_H
