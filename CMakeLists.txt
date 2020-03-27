@@ -25,6 +25,7 @@ add_executable(clion_ls
         src/flags/parse_flags.c
         src/flags/init_flags.c
         src/flags/del_flags.c
+        src/flags/get_flag.c
         includes/nodes.h
         src/nodes/cmp_nodes.c
         src/nodes/get_node.c
@@ -40,18 +41,23 @@ add_executable(clion_ls
         src/main.c
         src/parse_args.c
         src/print_args.c
+        src/ls_strcmp.c
         includes/print.h
         src/print/print_node.c
         src/print/print_dir_node.c
         src/print/print_file_node.c
         src/print/print_error.c
         src/print/print_srcs.c
-        src/print/col/print_srcs_col.c
-        src/print/col/print_srcs_row.c
-        src/flags/get_flag.c
-        src/print/line/print_srcs_line.c
         includes/print_col.h
+        src/print/col/print_srcs_col.c
+        src/print/col/init_col_attr.c
+        src/print/col/walk_srcs_col.c
+        src/print/col/walk_srcs_row.c
+        src/print/col/print_src.c
+        src/print/col/del_col_attr.c
         includes/print_line.h
-        src/print/line/print_mode.c src/print/col/get_max_name.c src/print/col/get_print_col.c)
+        src/print/line/print_srcs_line.c
+        src/print/line/print_mode.c
+        )
 
 target_link_libraries(${PROJECT_NAME} ft)

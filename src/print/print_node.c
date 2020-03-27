@@ -29,6 +29,8 @@ void	print_node(t_node *node, t_flags *flags, t_print *attr)
 		print_dir_node(node, flags, attr);
 	}
 	else
+	{
 		print_file_node(node, flags, attr);
-	attr->need_space = 1;
+		attr->need_space = 1;
+	}
 }
