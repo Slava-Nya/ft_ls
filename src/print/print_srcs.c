@@ -7,6 +7,8 @@
 
 void	print_srcs(t_avl *srcs, t_flags *flags)
 {
+	if (!srcs)
+		return ;
 	print_srcs_col(srcs);
 //	if (flags->print == f_col)
 //		print_srcs_col(srcs);

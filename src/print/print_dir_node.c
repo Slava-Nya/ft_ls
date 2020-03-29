@@ -23,12 +23,16 @@ static void	clear_dir_path(t_src *src, char dir_path[MAX_PATHLEN])
 
 static void	walk_srcs(t_avl *srcs, char dir_path[MAX_PATHLEN], t_flags *flags, t_print *attr)
 {
+	t_node *node;
+
 	if (!srcs)
 		return ;
 	walk_srcs(srcs->left, dir_path, flags, attr);
 	if (!get_dir_path(srcs->content, dir_path))
 	{
-		print_node(get_dir_node(dir_path, ((t_src*)srcs->content)->info), flags, attr);
+		node = get_dir_node(dir_path, ((t_src*)srcs->content)->info);
+		print_node(node, flags, attr);
+		del_node(&node);
 		clear_dir_path(srcs->content, dir_path);
 	}
 	walk_srcs(srcs->right, dir_path, flags, attr);
