@@ -22,55 +22,23 @@
  *
  */
 
-
-t_max_values *ft_max_struct_bezero()
+static void	get_elements(t_avl *srcs, t_flags *flags, t_max_values max)
 {
-	t_max_values *max;
-
-	max = ft_xmalloc(sizeof(t_max_values));
-	max->links = 0;
-	max->uid = 0;
-	max->gid = 0;
-	max->size = 0;
-	max->date = 0;
-	return (max);
-}
-
-int 	get_max_len(t_max_values *max, struct stat info)
-{
-	int uid_len;
-	int gid_len;
-
-	uid_len = ft_strlen(getpwuid(info.st_uid)->pw_name);
-	gid_len = ft_strlen(getgrgid(info.st_gid)->gr_name);
-	if (uid_len > max->uid)
-		max->uid = uid_len;
-	if (gid_len > max->gid)
-		max->gid = gid_len;
-	if (info.st_nlink > max->links)
-		max->links = info.st_nlink;
-	if (info.st_size > max.size)
-		max->size = info.st_size;
-}
-
-void	get_elements(t_avl *srcs, t_flags *flags, t_max_values *max)
-{
-	struct stat *tmp;
+	t_src *tmp;
 
 	if (!srcs)
 		return ;
 	get_elements(srcs->left, flags, max);
-	tmp = ((t_src*)srcs->content)->info;
-	get_max_len(max, tmp);
-	print_src(srcs->content);
+	tmp = (t_src *) srcs->content;
+	print_mode(tmp->name, tmp->info.st_mode);
 	get_elements(srcs->right, flags, max);
 }
 
 void	print_srcs_line(t_avl *srcs, t_flags *flags)
 {
-	t_max_values *max;
+	t_max_values max;
 
-
+	get_max_values(srcs, &max);
 	get_elements(srcs, flags, max);
 
 }

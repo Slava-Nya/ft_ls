@@ -5,6 +5,8 @@
 #ifndef PRINT_LINE_H
 #define PRINT_LINE_H
 
+#define N_CHMOD 12
+
 #include "srcs.h"
 
 struct  s_max_values{
@@ -17,8 +19,8 @@ struct  s_max_values{
 
 typedef struct s_max_values	t_max_values;
 
-void	print_mode(int mode);
-void	get_elements(t_avl *srcs, t_flags *flags, t_max_values *max);
+void	print_mode(char *path, int mode);
 void	print_srcs_line(t_avl *srcs, t_flags *flags);
+void 	get_max_values(t_avl *srcs, t_max_values *max);
 
 #endif //PRINT_LINE_H
