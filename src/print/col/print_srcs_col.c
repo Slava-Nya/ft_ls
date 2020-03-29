@@ -11,6 +11,7 @@ void	print_srcs_col(t_avl *srcs)
 
 	attr = init_col_attr(srcs);
 	walk_srcs_col(srcs, attr);
-	ft_putstr("\n");
+	if (attr->id)
+		ft_putstr("\n");
 	del_col_attr(&attr);
 }

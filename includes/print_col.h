@@ -10,6 +10,7 @@
 struct s_print_col
 {
 	int n;
+	int id;
 	int width;
 };
 

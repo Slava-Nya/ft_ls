@@ -6,17 +6,16 @@
 
 void print_src(t_src *src, t_print_col *attr)
 {
-	static int id;
 	int len;
 
 	if (attr->n < 2)
 		ft_putendl(src->name);
 	else
 	{
-		id++;
-		if (id == attr->n)
+		attr->id++;
+		if (attr->id == attr->n)
 		{
-			id = 0;
+			attr->id = 0;
 			ft_putendl(src->name);
 		}
 		else

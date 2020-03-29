@@ -39,5 +39,6 @@ t_print_col *init_col_attr(t_avl *srcs)
 	attr = ft_xmalloc(sizeof(t_print_col));
 	attr->width = max_name + 1;
 	attr->n = 3;
+	attr->id = 0;
 	return (attr);
 }
