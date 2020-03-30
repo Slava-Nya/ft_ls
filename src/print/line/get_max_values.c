@@ -6,6 +6,7 @@
 #include <libft.h>
 #include <pwd.h>
 #include <grp.h>
+#include <sys/types.h>
 
 static void		struct_bezero(t_max_values *max)
 {
@@ -13,7 +14,8 @@ static void		struct_bezero(t_max_values *max)
 	max->uid = 0;
 	max->gid = 0;
 	max->size = 0;
-	max->date = 0;
+	max->major = 0;
+	max->minor = 0;
 }
 
 static void 	get_max_len(struct stat info, t_max_values *max)
@@ -28,6 +30,8 @@ static void 	get_max_len(struct stat info, t_max_values *max)
 	if (gid_len > max->gid)
 		max->gid = gid_len;
 	max->size = ft_max(ft_numlen(info.st_size), max->size);
+	max->major = ft_max(ft_numlen(major(info.st_rdev)), max->major);
+	max->minor = ft_max(ft_numlen(minor(info.st_rdev)), max->minor);
 	max->links = ft_max(ft_numlen(info.st_nlink), max->links);
 }
 
