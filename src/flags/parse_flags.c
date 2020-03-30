@@ -29,7 +29,7 @@ int parse_flags(t_flags *flags, int argc, char **argv)
 		while (*flags_str)
 		{
 			if (get_flag(flags, *flags_str))
-				return (-1);
+				flags_error(*flags_str);
 			flags_str++;
 		}
 		cnt++;

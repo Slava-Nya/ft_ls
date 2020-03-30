@@ -71,6 +71,7 @@ static struct s_map_print g_map_print[N_PRINT_FLAGS] =
 
 typedef struct s_flags t_flags;
 
+void 			flags_error(char c);
 void			del_flags(t_flags **flags);
 t_flags			*init_flags(void);
 int				parse_flags(t_flags *flags, int argc, char **argv);

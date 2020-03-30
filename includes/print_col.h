@@ -5,8 +5,8 @@
 #ifndef PRINT_COL_H
 #define PRINT_COL_H
 #include "srcs.h"
-#define N_PADDING 2
-#define PADDING " "
+#define N_COL_PAD 2
+#define COL_PAD " "
 
 struct s_srcs_params
 {

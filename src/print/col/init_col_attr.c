@@ -14,9 +14,9 @@ static void get_srcs_params(t_avl *srcs, t_srcs_params *params)
 	if (!srcs)
 		return ;
 	src = (t_src*)srcs->content;
-	if (src->len > (params->max_name + N_PADDING))
-		params->max_name = src->len + N_PADDING;
-	params->sum_name += src->len + N_PADDING;
+	if (src->len > (params->max_name + N_COL_PAD))
+		params->max_name = src->len + N_COL_PAD;
+	params->sum_name += src->len + N_COL_PAD;
 	get_srcs_params(srcs->left, params);
 	get_srcs_params(srcs->right, params);
 }
@@ -29,8 +29,8 @@ static void get_col_widths(t_avl *srcs, t_print_col *attr)
 		return ;
 	get_col_widths(srcs->left, attr);
 	src = (t_src*)srcs->content;
-	if ((src->len + N_PADDING) > attr->widths[attr->id])
-		attr->widths[attr->id] = src->len + N_PADDING;
+	if ((src->len + N_COL_PAD) > attr->widths[attr->id])
+		attr->widths[attr->id] = src->len + N_COL_PAD;
 	attr->id = (attr->id + 1) % attr->n;
 	get_col_widths(srcs->right, attr);
 }
