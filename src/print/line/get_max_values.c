@@ -27,8 +27,8 @@ static void 	get_max_len(struct stat info, t_max_values *max)
 		max->uid = uid_len;
 	if (gid_len > max->gid)
 		max->gid = gid_len;
-	max->size = ft_max(ft_lng(info.st_size), max->size);
-	max->links = ft_max(ft_lng(info.st_nlink), max->links);
+	max->size = ft_max(ft_numlen(info.st_size), max->size);
+	max->links = ft_max(ft_numlen(info.st_nlink), max->links);
 }
 
 static void		get_elements(t_avl *srcs, t_max_values *max)

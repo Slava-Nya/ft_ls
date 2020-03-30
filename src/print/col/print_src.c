@@ -6,23 +6,25 @@
 
 void print_src(t_src *src, t_print_col *attr)
 {
-	int len;
+	int cnt;
 
-	if (attr->n < 2)
+	if (!attr->n)
+	{
+		ft_putstr(src->name);
+		cnt = 0;
+		while (cnt++ < N_PADDING)
+			ft_putstr(PADDING);
+	}
+	else if (attr->n == 1)
 		ft_putendl(src->name);
 	else
 	{
-		attr->id++;
-		if (attr->id == attr->n)
-		{
-			attr->id = 0;
-			ft_putendl(src->name);
-		}
-		else
-		{
-			len = ft_putstr(src->name);
-			while (len++ < attr->width)
-				ft_putstr(" ");
-		}
+		ft_putstr(src->name);
+		cnt = attr->widths[attr->id] - src->len;
+		while (cnt--)
+			ft_putstr(PADDING);
+		if (attr->id == attr->n - 1)
+			ft_putstr("\n");
+		attr->id = (attr->id + 1) % attr->n;
 	}
 }

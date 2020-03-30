@@ -7,11 +7,11 @@
 
 void	print_srcs_col(t_avl *srcs)
 {
-	t_print_col *attr;
+	t_print_col attr;
 
-	attr = init_col_attr(srcs);
-	walk_srcs_col(srcs, attr);
-	if (attr->id)
+	init_col_attr(srcs, &attr);
+	walk_srcs_col(srcs, &attr);
+	if (attr.id || !attr.n)
 		ft_putstr("\n");
-	del_col_attr(&attr);
+	free(attr.widths);
 }

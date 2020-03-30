@@ -15,6 +15,7 @@
 struct s_src
 {
 	char		name[MAX_FILENAME];
+	int 		len;
 	struct stat	info;
 };
 
