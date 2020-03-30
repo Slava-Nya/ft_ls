@@ -2,9 +2,11 @@
 // Created by slavanya on 30.03.2020.
 //
 
-#include <stdio.h>
+#include <print.h>
+#include <libft.h>
+#include <print_line.h>
 
 void 	print_gid(char *gid, int max_gid)
 {
-	printf(" %*s ", max_gid, gid);
+	print_col(gid, ft_putstr, max_gid + LN_PADDING);
 }

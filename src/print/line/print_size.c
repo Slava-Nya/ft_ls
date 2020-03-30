@@ -6,29 +6,62 @@
 #include <sys/stat.h>
 #include <zconf.h>
 #include <print_line.h>
+#include <print.h>
+#include <libft.h>
 
-//static void		print_h_flag()
+static char 	get_typesize(int type)
+{
+	if (type == 0)
+		return ('B');
+	else if (type == 1)
+		return ('K');
+	else if (type == 2)
+		return ('M');
+	else if (type == 3)
+		return ('G');
+	else if (type == 4)
+		return ('T');
+	return (' ');
+}
+
+static void		print_h_flag(size_t size)
+{
+	int		type;
+	int		rest;
+	char	date[5];
+
+	ft_bzero(date, 5);
+	type = 0;
+	while (size >= 1000)
+	{
+		rest = (size / 100) % 10;
+		size /= 1000;
+		type++;
+	}
+	if (size < 10 && type)
+	{
+		date[0] = size + '0';
+		date[1] = ',';
+		date[2] = rest + '0';
+		date[3] = get_typesize(type);
+		print_col(date, &ft_putstr, 4);
+		return ;
+	}
+	print_col_right(size, &ft_putnbr, &ft_numlen, 4);
+}
 
 void 	print_size(struct stat info, t_max_values max, t_flags *flags)
 {
-//	if (str[0] != 'c' && str[0] != 'b')
-//		ft_printf("  %*lld", size[4], file->size);
-//	else
-//	{
-//		ft_printf(" %*d", size[5], major(file->st_rdev));
-//		ft_printf(", %*d", size[6], minor(file->st_rdev));
-//	}
-//
-
-
-
 	if (S_ISBLK(info.st_mode) || S_ISCHR(info.st_mode))
 	{
-		printf(" %*d ", max.major, major(info.st_rdev));
-		printf("z %d ", max.minor, minor(info.st_dev));\
+		print_col_right(major(info.st_rdev), &ft_putnbr,
+			&ft_numlen, max.major);
+		print_col_right(minor(info.st_rdev), &ft_putnbr,
+			&ft_numlen, max.minor);
 	}
 	else if (flags->all[22])
-	{
-
-	}
+		print_h_flag(info.st_size);
+	else
+		print_col_right(info.st_size, &ft_putnbr, &ft_numlen,
+				max.size);
 }

@@ -6,11 +6,7 @@
 #include <print_line.h>
 #include <grp.h>
 #include <pwd.h>
-#include <libft.h>
 #include "srcs.h"
-#include "str_lib.h"
-
-
 /*
  * 1 - chmod -- st_mode
  * 2 * - количество жестких ссылок для файлов -- st_nlink
@@ -34,12 +30,12 @@ static void	get_elements(t_avl *srcs, t_flags *flags, t_max_values max)
 	get_elements(srcs->left, flags, max);
 	tmp = (t_src *) srcs->content;
 	print_mode(tmp->name, tmp->info.st_mode);
-	print_link(tmp->info.st_nlink, max.links);
+	print_nlink(tmp->info.st_nlink, max.links);
 	print_uid(getpwuid((tmp->info).st_uid)->pw_name, max.uid);
 	print_gid(getgrgid((tmp->info).st_gid)->gr_name, max.uid);
 	print_size(tmp->info, max, flags);
-	print_name(tmp->name, tmp->info.st_mode);
 	print_date(tmp->info, flags);
+	print_name_endl(tmp->name, tmp->info.st_mode);
 	get_elements(srcs->right, flags, max);
 }
 

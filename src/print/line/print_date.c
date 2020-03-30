@@ -8,6 +8,7 @@
 #include <sys/stat.h>
 #include <time.h>
 #include <unistd.h>
+#include <libft.h>
 
 
 static time_t	get_flag_time(struct stat info, t_flags *flags)
@@ -34,4 +35,5 @@ void 	print_date(struct stat info, t_flags *flags)
 		write(1, date + 19, 5);
 	else
 		write(1, date + 11, 5);
+	ft_putchar(' ');
 }
