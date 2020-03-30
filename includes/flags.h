@@ -44,6 +44,7 @@ struct	s_flags
 {
 	enum e_print_flags print;
 	enum e_sort_flags sort;
+	enum e_sort_flags display;
 	char all[N_FLAGS];
 };
 

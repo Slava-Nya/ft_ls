@@ -6,6 +6,7 @@
 #define PRINT_LINE_H
 
 # define N_CHMOD 12
+# define HALF_YEAR 15778800
 
 #include "srcs.h"
 

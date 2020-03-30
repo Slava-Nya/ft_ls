@@ -13,5 +13,6 @@ t_flags *init_flags(void)
 	ft_bzero(flags->all, N_FLAGS);
 	flags->sort = f_ascii;
 	flags->print = f_col;
+	flags->display = f_mtime;
 	return (flags);
 }

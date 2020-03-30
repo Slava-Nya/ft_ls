@@ -23,7 +23,7 @@ t_node			*get_node(char *argv, t_flags *flags)
 		return (NULL);
 	}
 	type = info.st_mode & S_IFMT;
-	if (type == S_IFDIR)
+	if (type == S_IFDIR && !flags->all[18])
 		return (get_dir_node(argv, info));
 	else
 		return (get_file_node(argv, info, flags));
