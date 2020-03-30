@@ -3,6 +3,7 @@
 //
 #include "print_col.h"
 #include "str_lib.h"
+#include "print.h"
 
 void print_src(t_src *src, t_print_col *attr)
 {
@@ -10,16 +11,16 @@ void print_src(t_src *src, t_print_col *attr)
 
 	if (!attr->n)
 	{
-		ft_putstr(src->name);
+		print_name(src->name, src->info.st_mode);
 		cnt = 0;
 		while (cnt++ < N_PADDING)
 			ft_putstr(PADDING);
 	}
 	else if (attr->n == 1)
-		ft_putendl(src->name);
+		print_name_endl(src->name, src->info.st_mode);
 	else
 	{
-		ft_putstr(src->name);
+		print_name(src->name, src->info.st_mode);
 		cnt = attr->widths[attr->id] - src->len;
 		while (cnt--)
 			ft_putstr(PADDING);

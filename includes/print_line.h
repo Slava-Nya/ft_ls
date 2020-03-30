@@ -26,6 +26,5 @@ void	print_link(int st_nlink, int max_links);
 void	print_uid(char *uid, int max_uid);
 void 	print_gid(char *gid, int max_gid);
 void 	print_size(int size, t_flags *flags, int max_size);
-void 	print_name(char *name);
 
 #endif //PRINT_LINE_H

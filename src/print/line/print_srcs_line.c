@@ -38,7 +38,7 @@ static void	get_elements(t_avl *srcs, t_flags *flags, t_max_values max)
 	print_uid(getpwuid((tmp->info).st_uid)->pw_name, max.uid);
 	print_gid(getgrgid((tmp->info).st_gid)->gr_name, max.uid);
 	print_size(tmp->info.st_size, flags, max.size);
-	print_name(tmp->name);
+	print_name_endl(tmp->name, tmp->info.st_mode);
 	get_elements(srcs->right, flags, max);
 }
 

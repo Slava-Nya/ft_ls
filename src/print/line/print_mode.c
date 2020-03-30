@@ -48,7 +48,7 @@ static char		get_file_acl(char path[PATH_MAX])
 	return (' ');
 }
 
-static void		display_chmod(char path, char chmod[N_CHMOD], int mode)
+static void		display_chmod(char *path, char chmod[N_CHMOD], int mode)
 {
 	chmod[0] = get_file_type(mode);
 	chmod[1] = (S_IRUSR & mode) ? 'r' : '-';
