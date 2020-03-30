@@ -6,6 +6,10 @@
 #include <print.h>
 #include <libft.h>
 #include <print_line.h>
+#include <sys/xattr.h>
+#include <sys/acl.h>
+# include <dirent.h>
+# include <sys/stat.h>
 
 static char		get_file_type(int mode)
 {
@@ -31,16 +35,16 @@ static char		get_file_type(int mode)
 
 static char		get_file_acl(char path[PATH_MAX])
 {
-	acl_t	tmp;
-	char	buf[101];
-
-	if (listxattr(path, buf, sizeof(buf), XATTR_NOFOLLOW) > 0)
-		return ('@');
-	if ((tmp = acl_get_link_np(path, ACL_TYPE_EXTENDED)))
-	{
-		acl_free(tmp);
-		return ('+');
-	}
+//	acl_t	tmp;
+//	char	buf[101];
+//
+//	if (listxattr(path, buf, sizeof(buf), XATTR_NOFOLLOW) > 0)
+//		return ('@');
+//	if ((tmp = acl_get_link_np(path, ACL_TYPE_EXTENDED)))
+//	{
+//		acl_free(tmp);
+//		return ('+');
+//	}
 	return (' ');
 }
 
@@ -64,7 +68,6 @@ static void		display_chmod(char path, char chmod[N_CHMOD], int mode)
 		chmod[6] = chmod[6] == '-' ? 'S' : 's';
 	if (S_ISVTX & mode)
 		chmod[9] = chmod[9] == '-' ? 'T' : 't';
-	ft_putstr(chmod);
 }
 
 
@@ -73,7 +76,5 @@ void	print_mode(char *path, int mode)
 	char chmod[N_CHMOD];
 
 	display_chmod(path, chmod, mode);
-
-
-
+	ft_putstr(chmod);
 }

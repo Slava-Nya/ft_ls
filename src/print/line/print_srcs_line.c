@@ -31,6 +31,8 @@ static void	get_elements(t_avl *srcs, t_flags *flags, t_max_values max)
 	get_elements(srcs->left, flags, max);
 	tmp = (t_src *) srcs->content;
 	print_mode(tmp->name, tmp->info.st_mode);
+	print_link(tmp->info.st_nlink, max.links);
+	print_uid(getpwuid((tmp->info).st_uid)->pw_name, max.uid);
 	get_elements(srcs->right, flags, max);
 }
 
@@ -40,5 +42,4 @@ void	print_srcs_line(t_avl *srcs, t_flags *flags)
 
 	get_max_values(srcs, &max);
 	get_elements(srcs, flags, max);
-
 }
