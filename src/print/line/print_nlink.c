@@ -6,5 +6,5 @@
 
 void	print_link(int st_nlink, int max_links)
 {
-	printf(" %+*hu", max_links, st_nlink);;
+	printf(" %*d ", 2, st_nlink);;
 }

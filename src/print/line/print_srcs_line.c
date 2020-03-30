@@ -20,6 +20,9 @@
  * 6 *для даты - дата последнего изменения -- st_mtim;
  * 7 - имя файла
  *
+ * l o g n 1 m\
+ *
+ *
  */
 
 static void	get_elements(t_avl *srcs, t_flags *flags, t_max_values max)
@@ -33,6 +36,9 @@ static void	get_elements(t_avl *srcs, t_flags *flags, t_max_values max)
 	print_mode(tmp->name, tmp->info.st_mode);
 	print_link(tmp->info.st_nlink, max.links);
 	print_uid(getpwuid((tmp->info).st_uid)->pw_name, max.uid);
+	print_gid(getgrgid((tmp->info).st_gid)->gr_name, max.uid);
+	print_size(tmp->info.st_size, flags, max.size);
+	print_name(tmp->name);
 	get_elements(srcs->right, flags, max);
 }
 

@@ -6,6 +6,5 @@
 
 void	print_uid(char *uid, int max_uid)
 {
-	printf(" %-*s \n", max_uid, uid);
-
+	printf(" %*s ", max_uid, uid);
 }
