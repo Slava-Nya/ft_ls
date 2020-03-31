@@ -16,10 +16,32 @@
  * 6 *для даты - дата последнего изменения -- st_mtim;
  * 7 - имя файла
  *
- * l o g n 1 m\
+ * l o g n
+ *
+ * 1 - имена в столбик
+ * o - буз группы
+ * g - без владельца
  *
  *
  */
+
+static void		get_call(t_src *src, t_flags *flags, t_max_values max)
+{
+	if (flags->all[37])
+	{
+		print_name_endl(src->name, src->info.st_mode);
+		return ;
+	}
+	print_mode(src->name, src->info.st_mode);
+	print_nlink(src->info.st_nlink, max.links);
+	if (!flags->all[21])
+		print_uid(getpwuid((src->info).st_uid)->pw_name, max.uid);
+	if (!flags->all[28])
+		print_gid(getgrgid((src->info).st_gid)->gr_name, max.uid);
+	print_size(src->info, max, flags);
+	print_date(src->info, flags);
+	print_name_endl(src->name, src->info.st_mode);
+}
 
 static void	get_elements(t_avl *srcs, t_flags *flags, t_max_values max)
 {
@@ -29,13 +51,7 @@ static void	get_elements(t_avl *srcs, t_flags *flags, t_max_values max)
 		return ;
 	get_elements(srcs->left, flags, max);
 	tmp = (t_src *) srcs->content;
-	print_mode(tmp->name, tmp->info.st_mode);
-	print_nlink(tmp->info.st_nlink, max.links);
-	print_uid(getpwuid((tmp->info).st_uid)->pw_name, max.uid);
-	print_gid(getgrgid((tmp->info).st_gid)->gr_name, max.uid);
-	print_size(tmp->info, max, flags);
-	print_date(tmp->info, flags);
-	print_name_endl(tmp->name, tmp->info.st_mode);
+	get_call(tmp, flags, max);
 	get_elements(srcs->right, flags, max);
 }
 
