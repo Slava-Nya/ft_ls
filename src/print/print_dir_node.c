@@ -53,19 +53,10 @@ static void	print_dir_head(char *path, t_flags *flags, t_print *attr)
 void	print_dir_node(t_node *node, t_flags *flags, t_print *attr)
 {
 	char dir_path[MAX_PATHLEN];
-	size_t len;
 
 	print_dir_head(node->path, flags, attr);
-	print_srcs(node->srcs, flags);
+	init_dir_path(dir_path, node->path);
+	print_srcs(node->srcs, dir_path, flags);
 	if (flags->all[10])
-	{
-		len = ft_strlen(node->path);
-		ft_strcpy(dir_path, node->path);
-		if (dir_path[len - 1] != '/')
-		{
-			dir_path[len++] = '/';
-			dir_path[len] = '\0';
-		}
 		walk_srcs(node->srcs, dir_path, flags, attr);
-	}
 }

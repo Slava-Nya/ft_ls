@@ -33,11 +33,12 @@ static struct s_errors g_errors[N_ERRORS] = {
 		{13, "cannot open directory"}
 };
 
+void init_dir_path(char *dir_path, char *path);
 void	print_col(void *data, int (*print)(void *), int width);
 void	print_col_right(void *data, int (*print)(void *), int (*len)(void *), int width);
 void 	print_name(char *name, int mode);
 void 	print_name_endl(char *name, int mode);
-void	print_srcs(t_avl *srcs, t_flags *flags);
+void print_srcs(t_avl *srcs, char *path, t_flags *flags);
 void	print_node(t_node *node, t_flags *flags, t_print *attr);
 void	print_dir_node(t_node *node, t_flags *flags, t_print *attr);
 void	print_file_node(t_node *node, t_flags *flags, t_print *attr);

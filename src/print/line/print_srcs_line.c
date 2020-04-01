@@ -6,6 +6,7 @@
 #include <print_line.h>
 #include <grp.h>
 #include <pwd.h>
+#include <zconf.h>
 #include "srcs.h"
 /*
  * 1 - chmod -- st_mode
@@ -25,7 +26,7 @@
  *
  */
 
-static void		get_call(t_src *src, t_flags *flags, t_max_values max)
+static void get_call(t_src *src, char *path, t_max_values max, t_flags *flags)
 {
 	if (flags->all[37])
 	{
@@ -33,7 +34,7 @@ static void		get_call(t_src *src, t_flags *flags, t_max_values max)
 		return ;
 	}
 	print_mode(src->name, src->info.st_mode);
-	print_nlink(src->info.st_nlink, max.links);
+	print_nlink(path, src->info.st_nlink, max.links);
 	if (!flags->all[21])
 		print_uid(getpwuid((src->info).st_uid)->pw_name, max.uid);
 	if (!flags->all[28])
@@ -43,22 +44,22 @@ static void		get_call(t_src *src, t_flags *flags, t_max_values max)
 	print_name_endl(src->name, src->info.st_mode);
 }
 
-static void	get_elements(t_avl *srcs, t_flags *flags, t_max_values max)
+static void	get_elements(t_avl *srcs, char *path, t_max_values max, t_flags *flags)
 {
 	static t_src *tmp;
 
 	if (!srcs)
 		return ;
-	get_elements(srcs->left, flags, max);
+	get_elements(srcs->left, path, max, flags);
 	tmp = (t_src *) srcs->content;
-	get_call(tmp, flags, max);
-	get_elements(srcs->right, flags, max);
+	get_call(tmp, path, max, flags);
+	get_elements(srcs->right, path, max, flags);
 }
 
-void	print_srcs_line(t_avl *srcs, t_flags *flags)
+void print_srcs_line(t_avl *srcs, char *path, t_flags *flags)
 {
 	t_max_values max;
 
 	get_max_values(srcs, &max);
-	get_elements(srcs, flags, max);
+	get_elements(srcs, NULL, max, flags);
 }
