@@ -6,25 +6,7 @@
 #include <print_line.h>
 #include <grp.h>
 #include <pwd.h>
-#include <zconf.h>
 #include "srcs.h"
-/*
- * 1 - chmod -- st_mode
- * 2 * - количество жестких ссылок для файлов -- st_nlink
- * 3 * - владелец -- st_uid; getpwuid
- * 4 * - группа -- st_gid; getgrgid
- * 5 * - размер в байтах -- st_size;
- * 6 *для даты - дата последнего изменения -- st_mtim;
- * 7 - имя файла
- *
- * l o g n
- *
- * 1 - имена в столбик
- * o - буз группы
- * g - без владельца
- *
- *
- */
 
 static void get_call(t_src *src, char *path, t_max_values max, t_flags *flags)
 {
@@ -62,5 +44,5 @@ void print_srcs_line(t_avl *srcs, char *path, t_flags *flags)
 	t_max_values max;
 
 	get_max_values(srcs, &max);
-	get_elements(srcs, NULL, max, flags);
+	get_elements(srcs, path, max, flags);
 }

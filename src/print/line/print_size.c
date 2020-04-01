@@ -56,6 +56,7 @@ void 	print_size(struct stat info, t_max_values max, t_flags *flags)
 	{
 		print_col_right(major(info.st_rdev), &ft_putnbr,
 			&ft_numlen, max.major);
+		ft_putchar(',');
 		print_col_right(minor(info.st_rdev), &ft_putnbr,
 			&ft_numlen, max.minor);
 	}
