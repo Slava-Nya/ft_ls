@@ -22,13 +22,14 @@ struct  s_max_values{
 
 typedef struct s_max_values	t_max_values;
 
-void print_srcs_line(t_avl *srcs, char *path, t_flags *flags);
+void	print_srcs_line(t_avl *srcs, char *path, t_flags *flags);
 void 	get_max_values(t_avl *srcs, t_max_values *max);
 void	print_mode(char *path, int mode);
-void print_nlink(char *path, int st_nlink, int max_links);
+void print_nlink(int st_nlink, int max_links);
 void	print_uid(char *uid, int max_uid);
 void 	print_gid(char *gid, int max_gid);
 void 	print_size(struct stat info, t_max_values max, t_flags *flags);
 void 	print_date(struct stat info, t_flags *flags);
+void	print_link(char *path, t_src *src);
 
 #endif //PRINT_LINE_H

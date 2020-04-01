@@ -6,7 +6,7 @@
 #include <libft.h>
 #include <print_line.h>
 
-void print_nlink(char *path, int st_nlink, int max_links)
+void print_nlink(int st_nlink, int max_links)
 {
 	print_col_right(st_nlink, &ft_putnbr, &ft_numlen, max_links);
 	ft_putchar(' ');
