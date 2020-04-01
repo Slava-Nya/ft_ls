@@ -10,7 +10,7 @@ void print_srcs(t_avl *srcs, char *path, t_flags *flags)
 	if (!srcs)
 		return ;
 	if ((flags->print == f_col) || (flags->print == f_line))
-		print_srcs_col(srcs);
+		print_srcs_col(srcs, path);
 //	else if (flags->print == f_line)
 //		print_srcs_row(srcs);
 	else

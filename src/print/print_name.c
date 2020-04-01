@@ -24,6 +24,8 @@ void 	print_name(char *name, int mode)
 		ft_putstr(COL_BLK);
 	else if (S_ISSOCK(mode))
 		ft_putstr(COL_SOCK);
+	else
+		ft_putstr(COL_ERR);
 	ft_putstr(name);
 	ft_putstr(COL_CLR);
 }

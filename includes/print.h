@@ -14,6 +14,7 @@
 # define COL_LNK	"\033[1;36m"
 # define COL_SOCK	"\033[1;35m"
 # define COL_EXE	"\033[1;32m"
+# define COL_ERR	"\033[1;40;31m"
 # define COL_CLR	"\033[0m"
 
 struct s_print{

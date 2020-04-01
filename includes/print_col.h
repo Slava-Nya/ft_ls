@@ -25,8 +25,8 @@ typedef struct s_print_col t_print_col;
 typedef struct s_srcs_params t_srcs_params;
 
 void		init_col_attr(t_avl *srcs, t_print_col *attr);
-void		print_srcs_col(t_avl *srcs);
-void		walk_srcs_col(t_avl *srcs, t_print_col *attr);
+void print_srcs_col(t_avl *srcs, char *path);
+void walk_srcs_col(t_avl *srcs, char *path, t_print_col *attr);
 void		walk_srcs_row(t_avl *srcs, t_print_col *attr);
-void		print_src(t_src *src, t_print_col *attr);
+void print_src(t_src *src, char *path, t_print_col *attr);
 #endif //PRINT_COL_H
