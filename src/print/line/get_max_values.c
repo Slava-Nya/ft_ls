@@ -22,16 +22,21 @@ static void 	get_max_len(struct stat info, t_max_values *max)
 {
 	int uid_len;
 	int gid_len;
+	int new_size_len;
 
+	new_size_len = 0;
 	uid_len = ft_strlen(getpwuid(info.st_uid)->pw_name);
 	gid_len = ft_strlen(getgrgid(info.st_gid)->gr_name);
-	if (uid_len > max->uid)
-		max->uid = uid_len;
-	if (gid_len > max->gid)
-		max->gid = gid_len;
+	max->uid = ft_max(gid_len, max->uid);
+	max->gid = ft_max(gid_len, max->gid);
 	max->size = ft_max(ft_numlen(info.st_size), max->size);
-	max->major = ft_max(ft_numlen(major(info.st_rdev)), max->major);
-	max->minor = ft_max(ft_numlen(minor(info.st_rdev)), max->minor);
+	if (S_ISBLK(info.st_mode) || S_ISCHR(info.st_mode))
+	{
+		max->major = ft_max(ft_numlen(major(info.st_rdev)), max->major);
+		max->minor = ft_max(ft_numlen(minor(info.st_rdev)), max->minor);
+		new_size_len = max->major + 1 + max->minor;
+	}
+	max->size = ft_max(new_size_len, max->size);
 	max->links = ft_max(ft_numlen(info.st_nlink), max->links);
 }
 
