@@ -16,6 +16,7 @@ static void		struct_bezero(t_max_values *max)
 	max->size = 0;
 	max->major = 0;
 	max->minor = 0;
+	max->total = 0;
 }
 
 static void 	get_max_len(struct stat info, t_max_values *max)
@@ -38,6 +39,7 @@ static void 	get_max_len(struct stat info, t_max_values *max)
 	}
 	max->size = ft_max(new_size_len, max->size);
 	max->links = ft_max(ft_numlen(info.st_nlink), max->links);
+	max->total += info.st_size;
 }
 
 static void		get_elements(t_avl *srcs, t_max_values *max)

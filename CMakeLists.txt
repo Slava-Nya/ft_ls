@@ -67,6 +67,6 @@ add_executable(clion_ls
         src/print/print_col.c
         src/print/print_col_right.c
         src/print/line/print_date.c
-        src/flags/flags_error.c src/print/init_dir_path.c src/print/line/print_link.c)
+        src/flags/flags_error.c src/print/init_dir_path.c src/print/line/print_link.c src/print/line/print_total.c src/print/line/get_human_readable.c)
 
 target_link_libraries(${PROJECT_NAME} ft)

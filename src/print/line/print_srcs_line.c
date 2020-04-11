@@ -8,6 +8,10 @@
 #include <pwd.h>
 #include "srcs.h"
 
+/*
+ * 37 - is -1 flag
+ */
+
 static void get_call(t_src *src, char *path, t_max_values max, t_flags *flags)
 {
 	if (flags->all[37])
@@ -44,5 +48,6 @@ void print_srcs_line(t_avl *srcs, char *path, t_flags *flags)
 	t_max_values max;
 
 	get_max_values(srcs, &max);
+	print_total(flags, max.total);
 	get_elements(srcs, path, max, flags);
 }
