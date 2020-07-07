@@ -18,7 +18,6 @@
 #include <unistd.h>
 #include <libft.h>
 
-
 static time_t	get_flag_time(struct stat info, t_flags *flags)
 {
 	if (flags->display == f_ctime)
@@ -29,11 +28,11 @@ static time_t	get_flag_time(struct stat info, t_flags *flags)
 		return (info.st_mtime);
 }
 
-void 	print_date(struct stat info, t_flags *flags)
+void			print_date(struct stat info, t_flags *flags)
 {
-	time_t src_time;
-	time_t cur_time;
-	char *date;
+	time_t		src_time;
+	time_t		cur_time;
+	char		*date;
 
 	src_time = get_flag_time(info, flags);
 	date = ctime(&src_time);
