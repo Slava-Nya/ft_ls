@@ -1,6 +1,14 @@
-//
-// Created by youpaw on 16.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   srcs.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/07 15:30:50 by hlorrine          #+#    #+#             */
+/*   Updated: 2020/07/07 15:31:28 by hlorrine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef SRCS_H
 #define SRCS_H
@@ -22,8 +30,7 @@ struct s_src
 typedef struct s_src t_src;
 
 t_src	*init_src(char name[MAX_FILENAME], struct stat info);
-t_avl	*get_srcs(DIR *dir, char *argv, t_flags *flags); // Уже написанно
-void	del_src(t_src **src);
-int 	cmp_srcs(t_src  *src1, t_src *src2, t_flags *flags); //Почти как cmp_nodes
+t_avl	*get_srcs(DIR *dir, char *argv, t_flags *flags);
+int 	cmp_srcs(t_src  *src1, t_src *src2, t_flags *flags);
 
-#endif //SRCS_H
+#endif

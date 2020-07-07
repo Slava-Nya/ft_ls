@@ -1,6 +1,15 @@
-//
-// Created by slavanya on 30.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_size.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/07 15:26:49 by hlorrine          #+#    #+#             */
+/*   Updated: 2020/07/07 15:26:54 by hlorrine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <flags.h>
 #include <sys/stat.h>
@@ -9,48 +18,7 @@
 #include <print.h>
 #include <libft.h>
 
-//static char 	get_typesize(int type)
-//{
-//	if (type == 0)
-//		return ('B');
-//	else if (type == 1)
-//		return ('K');
-//	else if (type == 2)
-//		return ('M');
-//	else if (type == 3)
-//		return ('G');
-//	else if (type == 4)
-//		return ('T');
-//	return (' ');
-//}
-//
-//static void		print_h_flag(size_t size)
-//{
-//	int		type;
-//	int		rest;
-//	char	date[5];
-//
-//	ft_bzero(date, 5);
-//	type = 0;
-//	while (size >= 1000)
-//	{
-//		rest = (size / 100) % 10;
-//		size /= 1000;
-//		type++;
-//	}
-//	if (size < 10 && type)
-//	{
-//		date[0] = size + '0';
-//		date[1] = ',';
-//		date[2] = rest + '0';
-//		date[3] = get_typesize(type);
-//		print_col(date, &ft_putstr, 4);
-//		return ;
-//	}
-//	print_col_right(size, &ft_putnbr, &ft_numlen, 4);
-//}
-
-void 	print_size(struct stat info, t_max_values max, t_flags *flags)
+void		print_size(struct stat info, t_max_values max, t_flags *flags)
 {
 	char	data[5];
 

@@ -1,15 +1,23 @@
-//
-// Created by youpaw on 01.04.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_link.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/07 15:26:23 by hlorrine          #+#    #+#             */
+/*   Updated: 2020/07/07 15:26:26 by hlorrine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "str_lib.h"
 #include "mem_lib.h"
 #include "print.h"
 #include <zconf.h>
 
-static int get_link_path(char *path, char *name, char *buf)
+static int		get_link_path(char *path, char *name, char *buf)
 {
-	int ret;
+	int			ret;
 	struct stat info;
 
 	ft_bzero(buf, PATH_MAX);
@@ -20,13 +28,14 @@ static int get_link_path(char *path, char *name, char *buf)
 	return (ret);
 }
 
-void	print_link(char *path, t_src *src)
+void			print_link(char *path, t_src *src)
 {
-	char buf[PATH_MAX];
-	int	mode;
+	char		buf[PATH_MAX];
+	int			mode;
 
 	mode = get_link_path(path, src->name, buf);
-	mode < 0 ? print_name(src->name, -1) : print_name(src->name, src->info.st_mode);
+	mode < 0 ? print_name(src->name, -1)
+		: print_name(src->name, src->info.st_mode);
 	ft_putstr(" -> ");
 	print_name_endl(buf, mode);
 }

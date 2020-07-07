@@ -1,10 +1,18 @@
-//
-// Created by youpaw on 16.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/07 15:30:43 by hlorrine          #+#    #+#             */
+/*   Updated: 2020/07/07 15:30:46 by hlorrine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PRINT_H
-#define PRINT_H
-#include "nodes.h"
+# define PRINT_H
+# include "nodes.h"
 # define N_ERRORS 2
 # define COL_IFO	"\033[40;33m"
 # define COL_CHR	"\033[1;40;33m"
@@ -17,32 +25,36 @@
 # define COL_ERR	"\033[1;40;31m"
 # define COL_CLR	"\033[0m"
 
-struct s_print{
-	int need_head;
-	int need_space;
+struct			s_print
+{
+	int			need_head;
+	int			need_space;
 };
 
-struct s_errors{
-	int		code;
-	char	*str;
+struct			s_errors
+{
+	int			code;
+	char		*str;
 };
 
 typedef struct s_print	t_print;
 
-static struct s_errors g_errors[N_ERRORS] = {
-		{2, "cannot access"},
-		{13, "cannot open directory"}
+static struct s_errors g_errors[N_ERRORS] =
+{
+	{2, "cannot access"},
+	{13, "cannot open directory"}
 };
 
-void init_dir_path(char *dir_path, char *path);
-void	print_col(void *data, int (*print)(void *), int width);
-void	print_col_right(void *data, int (*print)(void *), int (*len)(void *), int width);
-void 	print_name(char *name, int mode);
-void 	print_name_endl(char *name, int mode);
-void print_srcs(t_avl *srcs, char *path, t_flags *flags);
-void	print_node(t_node *node, t_flags *flags, t_print *attr);
-void	print_dir_node(t_node *node, t_flags *flags, t_print *attr);
-void	print_file_node(t_node *node, t_flags *flags, t_print *attr);
-void	print_error(char *path);
+void			init_dir_path(char *dir_path, char *path);
+void			print_col(void *data, int (*print)(void *), int width);
+void			print_col_right(void *data, int (*print)(void *),
+				int (*len)(void *), int width);
+void			print_name(char *name, int mode);
+void			print_name_endl(char *name, int mode);
+void			print_srcs(t_avl *srcs, char *path, t_flags *flags);
+void			print_node(t_node *node, t_flags *flags, t_print *attr);
+void			print_dir_node(t_node *node, t_flags *flags, t_print *attr);
+void			print_file_node(t_node *node, t_flags *flags, t_print *attr);
+void			print_error(char *path);
 
-#endif //PRINT_H
+#endif

@@ -1,11 +1,19 @@
-//
-// Created by youpaw on 11.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_flags.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/07 15:29:29 by hlorrine          #+#    #+#             */
+/*   Updated: 2020/07/07 15:29:32 by hlorrine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "flags.h"
 #include "mem_lib.h"
 
-t_flags *init_flags(void)
+t_flags		*init_flags(void)
 {
 	t_flags *flags;
 

@@ -1,15 +1,23 @@
-//
-// Created by youpaw on 26.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_col_attr.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/07 15:27:35 by hlorrine          #+#    #+#             */
+/*   Updated: 2020/07/07 15:27:42 by hlorrine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "print_col.h"
 #include "mem_lib.h"
 #include <sys/ioctl.h>
 #include <zconf.h>
 
-static void get_srcs_params(t_avl *srcs, t_srcs_params *params)
+static void			get_srcs_params(t_avl *srcs, t_srcs_params *params)
 {
-	static t_src *src;
+	static			t_src *src;
 
 	if (!srcs)
 		return ;
@@ -21,9 +29,9 @@ static void get_srcs_params(t_avl *srcs, t_srcs_params *params)
 	get_srcs_params(srcs->right, params);
 }
 
-static void get_col_widths(t_avl *srcs, t_print_col *attr)
+static void			get_col_widths(t_avl *srcs, t_print_col *attr)
 {
-	static t_src *src;
+	static			t_src *src;
 
 	if (!srcs)
 		return ;
@@ -35,16 +43,16 @@ static void get_col_widths(t_avl *srcs, t_print_col *attr)
 	get_col_widths(srcs->right, attr);
 }
 
-static void init_srcs_params(t_srcs_params *params)
+static void			init_srcs_params(t_srcs_params *params)
 {
 	params->max_name = 0;
 	params->sum_name = 0;
 }
 
-void init_col_attr(t_avl *srcs, t_print_col *attr)
+void				init_col_attr(t_avl *srcs, t_print_col *attr)
 {
-	t_srcs_params params;
-	struct winsize w;
+	t_srcs_params	params;
+	struct winsize	w;
 
 	init_srcs_params(&params);
 	get_srcs_params(srcs, &params);

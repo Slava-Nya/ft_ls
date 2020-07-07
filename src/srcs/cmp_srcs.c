@@ -1,11 +1,19 @@
-//
-// Created by youpaw on 12.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cmp_srcs.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/07 13:14:33 by hlorrine          #+#    #+#             */
+/*   Updated: 2020/07/07 13:15:57 by hlorrine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ls.h"
 #include "srcs.h"
 
-int 	cmp_srcs(t_src  *src1, t_src *src2, t_flags *flags)
+int		cmp_srcs(t_src *src1, t_src *src2, t_flags *flags)
 {
 	long ret;
 

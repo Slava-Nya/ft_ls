@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slavanya <slavanya@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 22:50:11 by slavanya          #+#    #+#             */
-/*   Updated: 2020/03/11 22:16:41 by slavanya         ###   ########lyon.fr   */
+/*   Created: 2020/07/07 13:14:03 by hlorrine          #+#    #+#             */
+/*   Updated: 2020/07/07 13:15:57 by hlorrine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "flags.h"
 #include "list_lib.h"
 
-t_list		*parse_args(int argc, char **argv, int skip, t_flags *flags) //Ето должно быть туть
+t_list		*parse_args(int argc, char **argv, int skip, t_flags *flags)
 {
 	t_list *nodes;
 	t_node *node;

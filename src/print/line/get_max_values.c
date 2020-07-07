@@ -1,6 +1,14 @@
-//
-// Created by slavanya on 29.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_max_values.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/07 15:26:08 by hlorrine          #+#    #+#             */
+/*   Updated: 2020/07/07 15:26:10 by hlorrine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <print_line.h>
 #include <libft.h>
@@ -19,7 +27,7 @@ static void		struct_bezero(t_max_values *max)
 	max->total = 0;
 }
 
-static void 	get_max_len(struct stat info, t_max_values *max)
+static void		get_max_len(struct stat info, t_max_values *max)
 {
 	int uid_len;
 	int gid_len;
@@ -52,10 +60,9 @@ static void		get_elements(t_avl *srcs, t_max_values *max)
 	tmp = ((t_src*)srcs->content)->info;
 	get_max_len(tmp, max);
 	get_elements(srcs->right, max);
-
 }
 
-void 	get_max_values(t_avl *srcs, t_max_values *max)
+void			get_max_values(t_avl *srcs, t_max_values *max)
 {
 	struct_bezero(max);
 	get_elements(srcs, max);

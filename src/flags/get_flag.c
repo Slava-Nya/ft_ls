@@ -1,6 +1,14 @@
-//
-// Created by slavanya on 21.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_flag.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/07 15:29:37 by hlorrine          #+#    #+#             */
+/*   Updated: 2020/07/07 15:29:40 by hlorrine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "flags.h"
 
@@ -20,7 +28,7 @@ static void		apply_f_flag(t_flags *flags)
 	flags->sort = f_unset;
 }
 
-static int	set_sort_flag(t_flags *flags, char c)
+static int		set_sort_flag(t_flags *flags, char c)
 {
 	int cnt;
 
@@ -48,9 +56,9 @@ static int	set_sort_flag(t_flags *flags, char c)
 	return (1);
 }
 
-static int	set_print_flag(t_flags *flags, char c)
+static int		set_print_flag(t_flags *flags, char c)
 {
-	int cnt;
+	int			cnt;
 
 	cnt = 0;
 	while (cnt < N_PRINT_FLAGS && g_map_print[cnt].c != c)
@@ -63,7 +71,7 @@ static int	set_print_flag(t_flags *flags, char c)
 	return (1);
 }
 
-int	get_flag(t_flags *flags, char c)
+int				get_flag(t_flags *flags, char c)
 {
 	int cnt;
 

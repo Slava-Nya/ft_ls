@@ -1,14 +1,22 @@
-//
-// Created by slavanya on 10.04.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_total.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/07 15:27:08 by hlorrine          #+#    #+#             */
+/*   Updated: 2020/07/07 15:27:11 by hlorrine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <libft.h>
 #include <flags.h>
 #include <print_line.h>
 
-void 	print_total(t_flags *flags, size_t total)
+void		print_total(t_flags *flags, size_t total)
 {
-	char data[5];
+	char	data[5];
 
 	ft_putstr("total ");
 	if (flags->all[22])

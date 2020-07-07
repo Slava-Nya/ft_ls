@@ -1,14 +1,22 @@
-//
-// Created by youpaw on 17.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_node.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/07 15:25:44 by hlorrine          #+#    #+#             */
+/*   Updated: 2020/07/07 15:25:46 by hlorrine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "print.h"
 #include "srcs.h"
 #include <dirent.h>
 
-static int get_dir_srcs(t_node *node, t_flags *flags, t_print *attr)
+static int		get_dir_srcs(t_node *node, t_flags *flags, t_print *attr)
 {
-	DIR *dir;
+	DIR			*dir;
 
 	if (!(dir = opendir(node->path)))
 	{
@@ -20,7 +28,7 @@ static int get_dir_srcs(t_node *node, t_flags *flags, t_print *attr)
 	return (0);
 }
 
-void	print_node(t_node *node, t_flags *flags, t_print *attr)
+void			print_node(t_node *node, t_flags *flags, t_print *attr)
 {
 	if (*node->path)
 	{
