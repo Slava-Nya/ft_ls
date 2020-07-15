@@ -6,7 +6,7 @@
 /*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 15:30:36 by hlorrine          #+#    #+#             */
-/*   Updated: 2020/07/07 15:30:39 by hlorrine         ###   ########.fr       */
+/*   Updated: 2020/07/15 17:02:45 by azomega          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define LN_PADDING 1
 
 # include "srcs.h"
+# include <stdlib.h>
 
 struct		s_max_values{
 	int		links;

@@ -6,7 +6,7 @@
 /*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 15:26:23 by hlorrine          #+#    #+#             */
-/*   Updated: 2020/07/07 15:26:26 by hlorrine         ###   ########.fr       */
+/*   Updated: 2020/07/15 17:04:21 by azomega          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static int		get_link_path(char *path, char *name, char *buf)
 	int			ret;
 	struct stat info;
 
-	ft_bzero(buf, PATH_MAX);
+	ft_bzero(buf, MAX_PATHLEN);
 	ft_strcat(path, name);
-	readlink(path, buf, PATH_MAX);
+	readlink(path, buf, MAX_PATHLEN);
 	ret = stat(path, &info) ? -1 : info.st_mode;
 	path[ft_strlen(path) - ft_strlen(name)] = '\0';
 	return (ret);
@@ -30,7 +30,7 @@ static int		get_link_path(char *path, char *name, char *buf)
 
 void			print_link(char *path, t_src *src)
 {
-	char		buf[PATH_MAX];
+	char		buf[MAX_PATHLEN];
 	int			mode;
 
 	mode = get_link_path(path, src->name, buf);

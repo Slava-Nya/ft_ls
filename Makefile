@@ -3,30 +3,95 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+         #
+#    By: azomega <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/09/21 22:10:19 by hlorrine          #+#    #+#              #
-#    Updated: 2020/01/27 19:58:44 by hlorrine         ###   ########.fr        #
+#    Created: 2020/07/15 15:48:07 by azomega           #+#    #+#              #
+#    Updated: 2020/07/15 17:10:59 by azomega          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-SRC =  ft_putnbr_fd.c ft_putendl_fd.c ft_putstr_fd.c ft_putchar_fd.c ft_putnbr.c ft_putendl.c ft_putstr.c ft_putchar.c ft_itoa.c ft_strsplit.c ft_strtrim.c ft_strjoin.c ft_strsub.c ft_strnequ.c ft_strequ.c ft_strmapi.c ft_strmap.c ft_striteri.c ft_striter.c ft_strclr.c ft_strdel.c ft_strnew.c ft_memdel.c ft_tolower.c ft_toupper.c ft_isprint.c ft_isascii.c ft_isalnum.c ft_isdigit.c ft_isalpha.c ft_atoi.c ft_strncmp.c ft_strcmp.c ft_strnstr.c ft_strstr.c ft_strrchr.c ft_memset.c ft_memalloc.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c ft_lstnew.c ft_lsdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_freesher.c ft_wordcount.c ft_reverselst.c ft_realloc.c ft_countalpha.c get_next_line.c ft_atoi_base.c ft_put_errno.c
-O = ft_putnbr_fd.o ft_putendl_fd.o ft_putstr_fd.o ft_putchar_fd.o ft_putnbr.o ft_putendl.o ft_putstr.o ft_putchar.o ft_itoa.o ft_strsplit.o ft_strtrim.o ft_strjoin.o ft_strsub.o ft_strnequ.o ft_strequ.o ft_strmapi.o ft_strmap.o ft_striteri.o ft_striter.o ft_strclr.o ft_strdel.o ft_strnew.o ft_memdel.o ft_tolower.o ft_toupper.o ft_isprint.o ft_isascii.o ft_isalnum.o ft_isdigit.o ft_isalpha.o ft_atoi.o ft_strncmp.o ft_strcmp.o ft_strnstr.o ft_strstr.o ft_strrchr.o ft_memset.o ft_memalloc.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o ft_memchr.o ft_memcmp.o ft_strlen.o ft_strdup.o ft_strcpy.o ft_strncpy.o ft_strcat.o ft_strncat.o ft_strlcat.o ft_strchr.o ft_lstnew.o ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_lstiter.o ft_lstmap.o ft_freesher.o ft_wordcount.o ft_reverselst.o ft_realloc.o ft_countalpha.o get_next_line.o ft_atoi_base.o ft_put_errno.o
+NAME = ft_ls
+
+#find src -type f -name '*.c' | sed "s/\$/ \\\\/" | cut -c 3-
+
+SRC = \
+		src/flags/del_flags.c \
+		src/flags/flags_error.c \
+		src/flags/get_flag.c \
+		src/flags/init_flags.c \
+		src/flags/parse_flags.c \
+		src/ls_strcmp.c \
+		src/main.c \
+		src/nodes/cmp_nodes.c \
+		src/nodes/del_node.c \
+		src/nodes/get_dir_node.c \
+		src/nodes/get_file_node.c \
+		src/nodes/get_node.c \
+		src/parse_args.c \
+		src/print/col/init_col_attr.c \
+		src/print/col/print_src.c \
+		src/print/col/print_srcs_col.c \
+		src/print/col/walk_srcs_col.c \
+		src/print/init_dir_path.c \
+		src/print/line/get_human_readable.c \
+		src/print/line/get_max_values.c \
+		src/print/line/print_date.c \
+		src/print/line/print_gid.c \
+		src/print/line/print_link.c \
+		src/print/line/print_mode.c \
+		src/print/line/print_nlink.c \
+		src/print/line/print_size.c \
+		src/print/line/print_srcs_line.c \
+		src/print/line/print_total.c \
+		src/print/line/print_uid.c \
+		src/print/print_col.c \
+		src/print/print_col_right.c \
+		src/print/print_dir_node.c \
+		src/print/print_error.c \
+		src/print/print_file_node.c \
+		src/print/print_name.c \
+		src/print/print_name_endl.c \
+		src/print/print_node.c \
+		src/print/print_srcs.c \
+		src/print_args.c \
+		src/srcs/cmp_srcs.c \
+		src/srcs/del_src.c \
+		src/srcs/get_srcs.c \
+		src/srcs/init_src.c 
+
+CC = gcc
+INC = \
+	  includes/flags.h \
+	  includes/ls.h \
+	  includes/nodes.h \
+	  includes/print.h \
+	  includes/print_col.h \
+	  includes/print_line.h \
+	  includes/srcs.h 
+
+#CFLAGS = -I includes/ -I libft/includes/ -Wall -Werror -Wextra
+CFLAGS = -I includes/ -I libft/includes/ 
+
+OBJ = $(SRC:.c=.o)
+DEBUG = #-g3 -fsanitize=address
 
 all: $(NAME)
-
-$(NAME): $(O)
-		@ar rc $(NAME) $(O)
-		@ranlib $(NAME)
-
-$(O): %.o: %.c
-		@gcc -Wall -Wextra -Werror -c $^
-
+%.o: %.c $(INC)
+	@printf "[ft_ls] Compiling [.:]\r"
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@printf "[ft_ls] Compiling [:.]\r"
+$(NAME): $(OBJ)
+	@printf "[ft_ls] Compiled successfuly! [OK]\n"
+	@make -C libft/
+	@gcc $(CFLAGS) $(DEBUG) $(OBJ) libft/libft.a -o $(NAME)
 clean:
-		@/bin/rm -f $(O)
-
+	@make clean -C libft/
+	@/bin/rm -f $(OBJ)
+	@printf "[ft_ls] Removed object files!\n"
 fclean: clean
-		@/bin/rm -f $(NAME)
-
+	@/bin/rm -f $(NAME)
+	@make fclean -C libft/
+	@printf "[ft_ls] Removed ft_ls binary!\n"
 re: fclean all
+
+.PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 13:13:50 by hlorrine          #+#    #+#             */
-/*   Updated: 2020/07/07 13:39:17 by hlorrine         ###   ########.fr       */
+/*   Updated: 2020/07/15 16:29:23 by azomega          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int				main(int argc, char **argv)
 {
 	int			skip;
-	t_flags		flags;
+	t_flags		*flags;
 	t_list		*nodes;
 
 	flags = init_flags();
