@@ -4,19 +4,7 @@ project(clion_ls C)
 set(CMAKE_C_STANDARD 11)
 
 set(LIBFT_DIR libft)
-include_directories(
-        ${LIBFT_DIR}/char
-        ${LIBFT_DIR}/env
-        ${LIBFT_DIR}/file
-        ${LIBFT_DIR}/list
-        ${LIBFT_DIR}/math
-        ${LIBFT_DIR}/memory
-        ${LIBFT_DIR}/num
-        ${LIBFT_DIR}/regex
-        ${LIBFT_DIR}/search
-        ${LIBFT_DIR}/string
-        ${LIBFT_DIR}/vector
-        ${LIBFT_DIR})
+include_directories(${LIBFT_DIR}/includes)
 add_subdirectory(${LIBFT_DIR})
 
 include_directories(includes)
@@ -52,7 +40,6 @@ add_executable(clion_ls
         src/print/col/print_srcs_col.c
         src/print/col/init_col_attr.c
         src/print/col/walk_srcs_col.c
-        src/print/col/walk_srcs_row.c
         src/print/col/print_src.c
         includes/print_line.h
         src/print/line/print_srcs_line.c
@@ -69,4 +56,4 @@ add_executable(clion_ls
         src/print/line/print_date.c
         src/flags/flags_error.c src/print/init_dir_path.c src/print/line/print_link.c src/print/line/print_total.c src/print/line/get_human_readable.c)
 
-target_link_libraries(${PROJECT_NAME} ft)
+target_link_libraries(${PROJECT_NAME} libft)
