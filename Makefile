@@ -6,7 +6,7 @@
 #    By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/21 22:10:19 by hlorrine          #+#    #+#              #
-#    Updated: 2020/07/07 16:59:59 by dbutterw         ###   ########.fr        #
+#    Updated: 2020/07/17 17:00:57 by azomega          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,6 @@ SRCS :=	ls_strcmp.c				\
 		print/col/print_src.c 		\
 		print/col/print_srcs_col.c 		\
 		print/col/walk_srcs_col.c 		\
-		print/col/walk_srcs_row.c 		\
 		print/line/get_human_readable.c 			\
 		print/line/get_max_values.c 			\
 		print/line/print_gid.c 			\
@@ -59,19 +58,16 @@ SRC_DIR := ./src
 
 LIB_DIR := ./libft
 
-INC :=	-I ./includes			\
-			-I $(LIB_DIR)			\
-			-I $(LIB_DIR)/char		\
-			 -I $(LIB_DIR)/env		\
-			 -I $(LIB_DIR)/file		\
-			 -I $(LIB_DIR)/list		\
-			 -I $(LIB_DIR)/math		\
-			 -I $(LIB_DIR)/memory	\
-			 -I $(LIB_DIR)/num		\
-			 -I $(LIB_DIR)/regex	\
-			 -I $(LIB_DIR)/string	\
-			 -I $(LIB_DIR)/vector	\
-			 -I $(LIB_DIR)/search
+INC := -I includes/ -I libft/includes/
+
+HEAD = \
+          includes/flags.h \
+          includes/ls.h \
+          includes/nodes.h \
+          includes/print.h \
+          includes/print_col.h \
+          includes/print_line.h \
+          includes/srcs.h
 
 OBJ_DIR := ./obj
 
@@ -97,7 +93,7 @@ all: $(NAME)
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR) $(CMP_DIR)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEAD)
 	gcc $(CFLAGS) $(INC) -o $@ -c $<
 
 $(NAME): $(OBJ_DIR) $(OBJ) | lib

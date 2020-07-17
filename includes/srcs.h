@@ -7,7 +7,7 @@
 
 #include <sys/stat.h>
 #include <dirent.h>
-#include "search_lib.h"
+#include "avl_lib.h"
 #include "flags.h"
 #define MAX_FILENAME 256
 #define MAX_PATHLEN 256
