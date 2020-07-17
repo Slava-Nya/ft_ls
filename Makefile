@@ -3,95 +3,115 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: azomega <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/07/15 15:48:07 by azomega           #+#    #+#              #
-#    Updated: 2020/07/15 17:10:59 by azomega          ###   ########.fr        #
+#    Created: 2019/09/21 22:10:19 by hlorrine          #+#    #+#              #
+#    Updated: 2020/07/07 16:59:59 by dbutterw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+SRCS :=	ls_strcmp.c				\
+		main.c					\
+		parse_args.c			\
+		print_args.c			\
+		flags/del_flags.c		\
+		flags/flags_error.c		\
+		flags/get_flag.c		\
+		flags/init_flags.c		\
+		flags/parse_flags.c		\
+		nodes/cmp_nodes.c		\
+		nodes/del_node.c		\
+		nodes/get_dir_node.c	\
+		nodes/get_file_node.c	\
+		nodes/get_node.c		\
+		srcs/cmp_srcs.c			\
+		srcs/del_src.c			\
+		srcs/get_srcs.c			\
+		srcs/init_src.c			\
+		print/init_dir_path.c 			\
+		print/print_col.c 			\
+		print/print_col_right.c 			\
+		print/print_dir_node.c 			\
+		print/print_error.c 			\
+		print/print_file_node.c 			\
+		print/print_name.c 			\
+		print/print_name_endl.c 			\
+		print/print_node.c 			\
+		print/print_srcs.c 			\
+		print/col/init_col_attr.c 		\
+		print/col/print_src.c 		\
+		print/col/print_srcs_col.c 		\
+		print/col/walk_srcs_col.c 		\
+		print/col/walk_srcs_row.c 		\
+		print/line/get_human_readable.c 			\
+		print/line/get_max_values.c 			\
+		print/line/print_gid.c 			\
+		print/line/print_date.c 			\
+		print/line/print_link.c 			\
+		print/line/print_mode.c 			\
+		print/line/print_nlink.c 			\
+		print/line/print_size.c 			\
+		print/line/print_srcs_line.c 			\
+		print/line/print_total.c 			\
+		print/line/print_uid.c
+
+SRC_DIR := ./src
+
+LIB_DIR := ./libft
+
+INC :=	-I ./includes			\
+			-I $(LIB_DIR)			\
+			-I $(LIB_DIR)/char		\
+			 -I $(LIB_DIR)/env		\
+			 -I $(LIB_DIR)/file		\
+			 -I $(LIB_DIR)/list		\
+			 -I $(LIB_DIR)/math		\
+			 -I $(LIB_DIR)/memory	\
+			 -I $(LIB_DIR)/num		\
+			 -I $(LIB_DIR)/regex	\
+			 -I $(LIB_DIR)/string	\
+			 -I $(LIB_DIR)/vector	\
+			 -I $(LIB_DIR)/search
+
+OBJ_DIR := ./obj
+
+CMP_DIR	:= $(OBJ_DIR)/flags		\
+			$(OBJ_DIR)/nodes	\
+			$(OBJ_DIR)/srcs		\
+			$(OBJ_DIR)/print	\
+			$(OBJ_DIR)/print/col\
+			$(OBJ_DIR)/print/line
+
+OBJ	:= $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
+
+CFLAGS	:= -Wall -Wextra -Werror
+
+LFLAGS	:= -L $(LIB_DIR) -lft
+
 NAME = ft_ls
 
-#find src -type f -name '*.c' | sed "s/\$/ \\\\/" | cut -c 3-
-
-SRC = \
-		src/flags/del_flags.c \
-		src/flags/flags_error.c \
-		src/flags/get_flag.c \
-		src/flags/init_flags.c \
-		src/flags/parse_flags.c \
-		src/ls_strcmp.c \
-		src/main.c \
-		src/nodes/cmp_nodes.c \
-		src/nodes/del_node.c \
-		src/nodes/get_dir_node.c \
-		src/nodes/get_file_node.c \
-		src/nodes/get_node.c \
-		src/parse_args.c \
-		src/print/col/init_col_attr.c \
-		src/print/col/print_src.c \
-		src/print/col/print_srcs_col.c \
-		src/print/col/walk_srcs_col.c \
-		src/print/init_dir_path.c \
-		src/print/line/get_human_readable.c \
-		src/print/line/get_max_values.c \
-		src/print/line/print_date.c \
-		src/print/line/print_gid.c \
-		src/print/line/print_link.c \
-		src/print/line/print_mode.c \
-		src/print/line/print_nlink.c \
-		src/print/line/print_size.c \
-		src/print/line/print_srcs_line.c \
-		src/print/line/print_total.c \
-		src/print/line/print_uid.c \
-		src/print/print_col.c \
-		src/print/print_col_right.c \
-		src/print/print_dir_node.c \
-		src/print/print_error.c \
-		src/print/print_file_node.c \
-		src/print/print_name.c \
-		src/print/print_name_endl.c \
-		src/print/print_node.c \
-		src/print/print_srcs.c \
-		src/print_args.c \
-		src/srcs/cmp_srcs.c \
-		src/srcs/del_src.c \
-		src/srcs/get_srcs.c \
-		src/srcs/init_src.c 
-
-CC = gcc
-INC = \
-	  includes/flags.h \
-	  includes/ls.h \
-	  includes/nodes.h \
-	  includes/print.h \
-	  includes/print_col.h \
-	  includes/print_line.h \
-	  includes/srcs.h 
-
-#CFLAGS = -I includes/ -I libft/includes/ -Wall -Werror -Wextra
-CFLAGS = -I includes/ -I libft/includes/ 
-
-OBJ = $(SRC:.c=.o)
-DEBUG = #-g3 -fsanitize=address
+.PHONY: all clean lib fclean re
 
 all: $(NAME)
-%.o: %.c $(INC)
-	@printf "[ft_ls] Compiling [.:]\r"
-	@$(CC) $(CFLAGS) -c $< -o $@
-	@printf "[ft_ls] Compiling [:.]\r"
-$(NAME): $(OBJ)
-	@printf "[ft_ls] Compiled successfuly! [OK]\n"
-	@make -C libft/
-	@gcc $(CFLAGS) $(DEBUG) $(OBJ) libft/libft.a -o $(NAME)
-clean:
-	@make clean -C libft/
-	@/bin/rm -f $(OBJ)
-	@printf "[ft_ls] Removed object files!\n"
-fclean: clean
-	@/bin/rm -f $(NAME)
-	@make fclean -C libft/
-	@printf "[ft_ls] Removed ft_ls binary!\n"
-re: fclean all
 
-.PHONY: all clean fclean re
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR) $(CMP_DIR)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	gcc $(CFLAGS) $(INC) -o $@ -c $<
+
+$(NAME): $(OBJ_DIR) $(OBJ) | lib
+	gcc -o $(NAME) $(OBJ) $(LFLAGS)
+
+lib:
+	make -C $(LIB_DIR)
+
+clean:
+	rm -rf $(OBJ_DIR) $(CMP_DIR)
+	make clean -C $(LIB_DIR)
+
+fclean: clean
+	rm -f $(NAME)
+	make fclean -C $(LIB_DIR)
+
+re: fclean all

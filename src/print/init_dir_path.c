@@ -1,18 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   init_dir_path.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/07 15:24:34 by hlorrine          #+#    #+#             */
-/*   Updated: 2020/07/07 15:24:39 by hlorrine         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+//
+// Created by youpaw on 01.04.2020.
+//
 
 #include "str_lib.h"
 
-void	init_dir_path(char *dir_path, char *path)
+void init_dir_path(char *dir_path, char *path)
 {
 	int len;
 

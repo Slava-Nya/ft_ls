@@ -1,19 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_human_readable.c                               :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/07 15:26:02 by hlorrine          #+#    #+#             */
-/*   Updated: 2020/07/07 15:26:05 by hlorrine         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+//
+// Created by slavanya on 10.04.2020.
+//
 
 #include <libft.h>
 #include <print.h>
 
-static void		get_itoa(char *data, size_t size)
+static void 	get_itoa(char *data, size_t size)
 {
 	int len;
 
@@ -25,7 +17,7 @@ static void		get_itoa(char *data, size_t size)
 	}
 }
 
-static char		get_typesize(int type)
+static char 	get_typesize(int type)
 {
 	if (type == 0)
 		return ('B');
@@ -40,10 +32,10 @@ static char		get_typesize(int type)
 	return (' ');
 }
 
-void			get_human_readable(char data[5], size_t size)
+void	get_human_readable(char data[5], size_t size)
 {
-	int			type;
-	int			rest;
+	int		type;
+	int		rest;
 
 	type = 0;
 	while (size >= 1000)

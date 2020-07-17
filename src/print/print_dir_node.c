@@ -1,15 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   print_dir_node.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/07 15:24:58 by hlorrine          #+#    #+#             */
-/*   Updated: 2020/07/07 15:25:01 by hlorrine         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
+//
+// Created by youpaw on 17.03.2020.
+//
 #include "print.h"
 #include "str_lib.h"
 
@@ -30,8 +21,7 @@ static void	clear_dir_path(t_src *src, char dir_path[MAX_PATHLEN])
 	dir_path[ft_strlen(dir_path) - ft_strlen(src->name)] = '\0';
 }
 
-static void	walk_srcs(t_avl *srcs, char dir_path[MAX_PATHLEN],
-			t_flags *flags, t_print *attr)
+static void	walk_srcs(t_avl *srcs, char dir_path[MAX_PATHLEN], t_flags *flags, t_print *attr)
 {
 	t_node *node;
 
@@ -60,9 +50,9 @@ static void	print_dir_head(char *path, t_flags *flags, t_print *attr)
 	}
 }
 
-void		print_dir_node(t_node *node, t_flags *flags, t_print *attr)
+void	print_dir_node(t_node *node, t_flags *flags, t_print *attr)
 {
-	char	dir_path[MAX_PATHLEN];
+	char dir_path[MAX_PATHLEN];
 
 	print_dir_head(node->path, flags, attr);
 	init_dir_path(dir_path, node->path);

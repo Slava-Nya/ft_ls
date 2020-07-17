@@ -1,22 +1,14 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   print_mode.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/07 15:26:30 by hlorrine          #+#    #+#             */
-/*   Updated: 2020/07/07 15:26:32 by hlorrine         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+//
+// Created by slavanya on 25.03.2020.
+//
+
 
 #include <print.h>
 #include <libft.h>
 #include <print_line.h>
 #include <sys/xattr.h>
 #include <sys/acl.h>
-#include <dirent.h>
-#include <sys/stat.h>
+# include <sys/stat.h>
 
 static char		get_file_type(int mode)
 {
@@ -39,10 +31,11 @@ static char		get_file_type(int mode)
 		return ('-');
 }
 
-static char		get_file_acl(char path[PATH_MAX])
+
+static char		get_file_acl(char path[MAX_PATHLEN])
 {
-	acl_t		tmp;
-	char		buf[101];
+	acl_t	tmp;
+	char	buf[101];
 
 	if (listxattr(path, buf, sizeof(buf), XATTR_NOFOLLOW) > 0)
 		return ('@');
@@ -76,9 +69,10 @@ static void		display_chmod(char *path, char chmod[N_CHMOD], int mode)
 		chmod[9] = chmod[9] == '-' ? 'T' : 't';
 }
 
-void			print_mode(char *path, int mode)
+
+void	print_mode(char *path, int mode)
 {
-	char		chmod[N_CHMOD];
+	char chmod[N_CHMOD];
 
 	display_chmod(path, chmod, mode);
 	ft_putstr(chmod);

@@ -1,14 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   print_srcs_line.c                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/07 15:27:01 by hlorrine          #+#    #+#             */
-/*   Updated: 2020/07/07 15:27:04 by hlorrine         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+//
+// Created by slavanya on 21.03.2020.
+//
 
 #include <print.h>
 #include <print_line.h>
@@ -16,8 +8,11 @@
 #include <pwd.h>
 #include "srcs.h"
 
-static void		get_call(t_src *src, char *path,
-			t_max_values max, t_flags *flags)
+/*
+ * 37 - is -1 flag
+ */
+
+static void get_call(t_src *src, char *path, t_max_values max, t_flags *flags)
 {
 	if (flags->all[37])
 	{
@@ -36,20 +31,19 @@ static void		get_call(t_src *src, char *path,
 	print_name_endl(src->name, src->info.st_mode);
 }
 
-static void		get_elements(t_avl *srcs, char *path,
-			t_max_values max, t_flags *flags)
+static void	get_elements(t_avl *srcs, char *path, t_max_values max, t_flags *flags)
 {
-	static		t_src *tmp;
+	static t_src *tmp;
 
 	if (!srcs)
 		return ;
 	get_elements(srcs->left, path, max, flags);
-	tmp = (t_src *)srcs->content;
+	tmp = (t_src *) srcs->content;
 	get_call(tmp, path, max, flags);
 	get_elements(srcs->right, path, max, flags);
 }
 
-void			print_srcs_line(t_avl *srcs, char *path, t_flags *flags)
+void print_srcs_line(t_avl *srcs, char *path, t_flags *flags)
 {
 	t_max_values max;
 

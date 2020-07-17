@@ -1,14 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   print_date.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/07 15:26:14 by hlorrine          #+#    #+#             */
-/*   Updated: 2020/07/07 15:26:17 by hlorrine         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+//
+// Created by slavanya on 30.03.2020.
+//
 
 #include "flags.h"
 #include "str_lib.h"
@@ -17,6 +9,7 @@
 #include <time.h>
 #include <unistd.h>
 #include <libft.h>
+
 
 static time_t	get_flag_time(struct stat info, t_flags *flags)
 {
@@ -28,11 +21,11 @@ static time_t	get_flag_time(struct stat info, t_flags *flags)
 		return (info.st_mtime);
 }
 
-void			print_date(struct stat info, t_flags *flags)
+void 	print_date(struct stat info, t_flags *flags)
 {
-	time_t		src_time;
-	time_t		cur_time;
-	char		*date;
+	time_t src_time;
+	time_t cur_time;
+	char *date;
 
 	src_time = get_flag_time(info, flags);
 	date = ctime(&src_time);
