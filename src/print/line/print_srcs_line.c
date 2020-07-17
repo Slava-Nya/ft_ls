@@ -24,7 +24,7 @@ static void get_call(t_src *src, char *path, t_max_values max, t_flags *flags)
 	if (!flags->all[21])
 		print_uid(getpwuid((src->info).st_uid)->pw_name, max.uid);
 	if (!flags->all[28])
-		print_gid(getgrgid((src->info).st_gid)->gr_name, max.uid);
+		print_gid(getgrgid((src->info).st_gid)->gr_name, max.gid);
 	print_size(src->info, max, flags);
 	print_date(src->info, flags);
 	S_ISLNK(src->info.st_mode) ? print_link(path, src) : \

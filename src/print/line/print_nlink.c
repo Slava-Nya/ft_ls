@@ -8,6 +8,7 @@
 
 void print_nlink(int st_nlink, int max_links)
 {
+	ft_putchar(' ');
 	print_col_right((void *) ((size_t) st_nlink), (int (*)(void *)) &ft_putnbr, \
     	(int (*)(void *)) &ft_numlen, max_links);
 	ft_putchar(' ');

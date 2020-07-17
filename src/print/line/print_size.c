@@ -25,9 +25,9 @@ void 	print_size(struct stat info, t_max_values max, t_flags *flags)
 	{
 		get_human_readable(data, info.st_size);
 		print_col_right(data, (int (*)(void *)) &ft_putstr, \
-        	(int (*)(void *)) &ft_strlen, 4);
+        	(int (*)(void *)) &ft_strlen, 6);
 	}
 	else
 		print_col_right((void *)((size_t) info.st_size), \
-		(int (*)(void *)) &ft_putnbr, (int (*)(void *)) &ft_numlen, max.size);
+		(int (*)(void *)) &ft_putnbr, (int (*)(void *)) &ft_numlen, max.size + 1);
 }

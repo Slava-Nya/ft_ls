@@ -5,15 +5,24 @@
 #include <libft.h>
 #include <print.h>
 
-static void 	get_itoa(char *data, size_t size)
+static void 	get_itoa(char data[5], int size)
 {
 	int len;
+	int i;
 
 	len = ft_numlen(size);
+	data[3] = 'B';
+	i = 2;
 	while (len--)
 	{
-		data[len] = size % 10 + '0';
+		data[i] = (size % 10) + '0';
 		size /= 10;
+		i--;
+	}
+	while (i >= 0)
+	{
+		data[i] = ' ';
+		i--;
 	}
 }
 
@@ -36,15 +45,17 @@ void	get_human_readable(char data[5], size_t size)
 {
 	int		type;
 	int		rest;
+	char tmp;
 
 	type = 0;
+	int len = 2;
 	while (size >= 1000)
 	{
 		rest = (size / 100) % 10;
 		size /= 1000;
 		type++;
 	}
-	if (size < 10 && type)
+	if (size < 10 && type > 0)
 	{
 		ft_bzero(data, 5);
 		data[0] = size + '0';
@@ -53,5 +64,7 @@ void	get_human_readable(char data[5], size_t size)
 		data[3] = get_typesize(type);
 	}
 	else
-		get_itoa(data, size);
+	{
+		get_itoa(data, (int)size);
+	}
 }
