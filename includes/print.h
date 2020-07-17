@@ -29,7 +29,7 @@ struct s_errors{
 
 typedef struct s_print	t_print;
 
-static struct s_errors g_errors[N_ERRORS] = {
+static const struct s_errors g_errors[N_ERRORS] = {
 		{2, "cannot access"},
 		{13, "cannot open directory"}
 };
