@@ -1,3 +1,3 @@
 [submodule "libft"]
 	path = libft
-	url = git@github.com:azomega-max/libft.git
+	url = https://github.com/azomega-max/libft.git
