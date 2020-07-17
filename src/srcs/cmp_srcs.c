@@ -2,8 +2,8 @@
 // Created by youpaw on 12.03.2020.
 //
 
-#include "ls.h"
 #include "srcs.h"
+#include "str_lib.h"
 
 int 	cmp_srcs(t_src  *src1, t_src *src2, t_flags *flags)
 {
@@ -21,7 +21,7 @@ int 	cmp_srcs(t_src  *src1, t_src *src2, t_flags *flags)
 	else if (flags->sort == f_size)
 		ret = src2->info.st_size - src1->info.st_size;
 	if (ret == 0)
-		ret = ls_strcmp(src1->name, src2->name);
+		ret = ft_strcmp(src1->name, src2->name);
 	if (flags->all[31])
 		ret *= -1;
 	return ((int)ret);

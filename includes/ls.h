@@ -11,6 +11,4 @@ void	print_args(t_list *nodes, t_flags *flags);
 
 t_list *parse_args(int argc, char **argv, int skip, t_flags *flags);
 
-int		ls_strcmp(const char *s1, const char *s2);
-
 #endif //LS_H

@@ -6,12 +6,11 @@
 #    By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/21 22:10:19 by hlorrine          #+#    #+#              #
-#    Updated: 2020/07/17 17:00:57 by azomega          ###   ########.fr        #
+#    Updated: 2020/07/17 20:53:53 by dbutterw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS :=	ls_strcmp.c				\
-		main.c					\
+SRCS :=	main.c					\
 		parse_args.c			\
 		print_args.c			\
 		flags/del_flags.c		\
