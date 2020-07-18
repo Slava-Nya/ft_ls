@@ -6,7 +6,7 @@
 /*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 13:02:15 by azomega           #+#    #+#             */
-/*   Updated: 2020/07/18 13:02:26 by azomega          ###   ########.fr       */
+/*   Updated: 2020/07/18 18:55:14 by dbutterw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ int		cmp_nodes(t_node *node1, t_node *node2, t_flags *flags)
 	if (flags->sort == f_unset)
 		return (1);
 	ret = 0;
+	if (!ft_strlen(node1->path))
+		return (-1);
+	else if (!ft_strlen(node2->path))
+		return (1);
 	if (flags->sort == f_mtime)
 		ret = node2->info.st_mtimespec.tv_sec - node1->info.st_mtimespec.tv_sec;
 	else if (flags->sort == f_ctime)

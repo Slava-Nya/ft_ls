@@ -6,7 +6,7 @@
 /*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 12:34:46 by azomega           #+#    #+#             */
-/*   Updated: 2020/07/18 19:35:49 by azomega          ###   ########.fr       */
+/*   Updated: 2020/07/18 19:52:57 by dbutterw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void			print_name_endl(char *name, int mode);
 void			print_srcs(t_avl *srcs, char *path, t_flags *flags);
 void			print_node(t_node *node, t_flags *flags, t_print *attr);
 void			print_dir_node(t_node *node, t_flags *flags, t_print *attr);
-void			print_dir_head(char *path, t_print *attr);
 void			print_file_node(t_node *node, t_flags *flags, t_print *attr);
 void			print_error(char *path);
 

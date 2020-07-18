@@ -6,12 +6,11 @@
 /*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 13:18:15 by azomega           #+#    #+#             */
-/*   Updated: 2020/07/18 13:45:36 by dbutterw         ###   ########.fr       */
+/*   Updated: 2020/07/18 20:06:28 by dbutterw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "flags.h"
-#include "str_lib.h"
 #include "print_line.h"
 #include <sys/stat.h>
 #include <time.h>
@@ -21,11 +20,11 @@
 static time_t	get_flag_time(struct stat info, t_flags *flags)
 {
 	if (flags->display == f_ctime)
-		return (info.st_ctime);
+		return (info.st_ctimespec.tv_sec);
 	else if (flags->display == f_atime)
-		return (info.st_atime);
+		return (info.st_atimespec.tv_sec);
 	else
-		return (info.st_mtime);
+		return (info.st_mtimespec.tv_sec);
 }
 
 void			print_date(struct stat info, t_flags *flags)
