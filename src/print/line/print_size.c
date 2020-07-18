@@ -29,5 +29,5 @@ void 	print_size(struct stat info, t_max_values max, t_flags *flags)
 	}
 	else
 		print_col_right((void *)((size_t) info.st_size), \
-		(int (*)(void *)) &ft_putnbr, (int (*)(void *)) &ft_numlen, max.size + 1);
+		(int (*)(void *)) &ft_putnbr, (int (*)(void *)) &ft_numlen, max.size + 2);
 }
