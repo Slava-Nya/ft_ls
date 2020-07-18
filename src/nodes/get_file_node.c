@@ -1,24 +1,32 @@
-//
-// Created by youpaw on 16.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_file_node.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/18 13:03:14 by azomega           #+#    #+#             */
+/*   Updated: 2020/07/18 13:03:37 by azomega          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <nodes.h>
 #include "mem_lib.h"
 
-static t_node *init_file_node(void)
+static t_node	*init_file_node(void)
 {
-	t_node *new_node;
+	t_node	*new_node;
 
 	new_node = ft_xmalloc(sizeof(t_node));
 	ft_bzero(new_node->path, MAX_PATHLEN);
 	ft_bzero(&new_node->info, sizeof(struct stat));
 	new_node->srcs = NULL;
-	return(new_node);
+	return (new_node);
 }
 
-t_node 	*get_file_node(char *argv, struct stat info, t_flags *flags)
+t_node			*get_file_node(char *argv, struct stat info, t_flags *flags)
 {
-	static t_node *file_node;
+	static t_node	*file_node;
 
 	if (!file_node)
 		file_node = init_file_node();

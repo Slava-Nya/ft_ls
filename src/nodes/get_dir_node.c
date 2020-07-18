@@ -1,6 +1,14 @@
-//
-// Created by youpaw on 16.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_dir_node.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/18 13:02:42 by azomega           #+#    #+#             */
+/*   Updated: 2020/07/18 13:02:58 by azomega          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "nodes.h"
 #include "str_lib.h"
@@ -8,11 +16,11 @@
 
 t_node	*get_dir_node(char *argv, struct stat info)
 {
-	t_node *new_node;
+	t_node	*new_node;
 
 	new_node = (t_node*)ft_xmalloc(sizeof(t_node));
 	new_node->info = info;
 	ft_strcpy(new_node->path, argv);
 	new_node->srcs = NULL;
-	return(new_node);
+	return (new_node);
 }

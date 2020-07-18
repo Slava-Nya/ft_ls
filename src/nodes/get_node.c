@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_node.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/18 13:03:47 by azomega           #+#    #+#             */
+/*   Updated: 2020/07/18 13:04:23 by azomega          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "flags.h"
 #include "nodes.h"
@@ -5,10 +16,10 @@
 #include <errno.h>
 #include <stddef.h>
 
-t_node			*get_node(char *argv, t_flags *flags)
+t_node	*get_node(char *argv, t_flags *flags)
 {
 	unsigned int	type;
-	struct			stat info;
+	struct stat		info;
 
 	if (flags->all[21] || flags->all[25] || flags->all[27] || flags->all[28])
 		lstat(argv, &info);

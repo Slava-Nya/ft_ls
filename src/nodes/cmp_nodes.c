@@ -1,13 +1,21 @@
-//
-// Created by youpaw on 12.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cmp_nodes.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/18 13:02:15 by azomega           #+#    #+#             */
+/*   Updated: 2020/07/18 13:02:26 by azomega          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "nodes.h"
 #include "str_lib.h"
 
 int		cmp_nodes(t_node *node1, t_node *node2, t_flags *flags)
 {
-	long ret;
+	long	ret;
 
 	if (flags->sort == f_unset)
 		return (-1);
