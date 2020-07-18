@@ -66,6 +66,8 @@ static int	set_print_flag(t_flags *flags, char c)
 	if (cnt < N_PRINT_FLAGS)
 	{
 		flags->print = g_map_print[cnt].map;
+		if (flags->print == f_1perl && c != '1')
+			flags->all[37] = 0;
 		return (0);
 	}
 	return (1);
