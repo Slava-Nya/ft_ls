@@ -1,11 +1,19 @@
-//
-// Created by youpaw on 18.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   del_flags.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/18 12:57:12 by azomega           #+#    #+#             */
+/*   Updated: 2020/07/18 12:57:37 by azomega          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <stdlib.h>
 #include "flags.h"
 
-void 	del_flags(t_flags **flags)
+void	del_flags(t_flags **flags)
 {
 	free(*flags);
 	*flags = NULL;

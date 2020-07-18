@@ -1,12 +1,20 @@
-//
-// Created by slavanya on 21.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_flag.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/18 12:59:24 by azomega           #+#    #+#             */
+/*   Updated: 2020/07/18 13:00:47 by azomega          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "flags.h"
 
-static void		apply_f_flag(t_flags *flags)
+static void	apply_f_flag(t_flags *flags)
 {
-	int cnt;
+	int		cnt;
 
 	cnt = 0;
 	while (cnt < N_SORT_FLAGS)
@@ -50,7 +58,7 @@ static int	set_sort_flag(t_flags *flags, char c)
 
 static int	set_print_flag(t_flags *flags, char c)
 {
-	int cnt;
+	int		cnt;
 
 	cnt = 0;
 	while (cnt < N_PRINT_FLAGS && g_map_print[cnt].c != c)
@@ -58,16 +66,14 @@ static int	set_print_flag(t_flags *flags, char c)
 	if (cnt < N_PRINT_FLAGS)
 	{
 		flags->print = g_map_print[cnt].map;
-//		if (flags->print == f_1perl && c != '1')
-//			flags->all[37] = 0;
 		return (0);
 	}
 	return (1);
 }
 
-int	get_flag(t_flags *flags, char c)
+int			get_flag(t_flags *flags, char c)
 {
-	int cnt;
+	int		cnt;
 
 	cnt = 1;
 	while (cnt < N_FLAGS && FLAGS[cnt] != c)
