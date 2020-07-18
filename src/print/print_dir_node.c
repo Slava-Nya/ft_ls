@@ -6,7 +6,7 @@
 /*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 13:38:05 by azomega           #+#    #+#             */
-/*   Updated: 2020/07/18 13:40:15 by azomega          ###   ########.fr       */
+/*   Updated: 2020/07/18 13:56:22 by dbutterw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,24 @@ static void	walk_srcs(t_avl *srcs, char dir_path[MAX_PATHLEN], \
 	walk_srcs(srcs->right, dir_path, flags, attr);
 }
 
-static void	print_dir_head(char *path, t_flags *flags, t_print *attr)
+static void print_dir_head(char *path, t_print *attr)
 {
 	if (attr->need_space)
 		ft_putstr("\n");
-	if (attr->need_head || flags->all[10])
+	if (attr->need_head)
 	{
 		ft_putstr(path);
 		ft_putendl(":");
-		attr->need_space = 1;
 	}
+	attr->need_head = 1;
+	attr->need_space = 1;
 }
 
 void		print_dir_node(t_node *node, t_flags *flags, t_print *attr)
 {
 	char	dir_path[MAX_PATHLEN];
 
-	print_dir_head(node->path, flags, attr);
+	print_dir_head(node->path, attr);
 	init_dir_path(dir_path, node->path);
 	print_srcs(node->srcs, dir_path, flags);
 	if (flags->all[10])

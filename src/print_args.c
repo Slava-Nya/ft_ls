@@ -12,7 +12,6 @@
 
 #include "flags.h"
 #include "list_lib.h"
-#include "mem_lib.h"
 #include "print.h"
 
 static void	init_print(t_list *nodes, t_print *attr)

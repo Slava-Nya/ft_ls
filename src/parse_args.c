@@ -6,7 +6,7 @@
 /*   By: slavanya <slavanya@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 22:50:11 by slavanya          #+#    #+#             */
-/*   Updated: 2020/07/18 13:43:44 by azomega          ###   ########.fr       */
+/*   Updated: 2020/07/18 13:45:36 by dbutterw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "flags.h"
 #include "list_lib.h"
 
-t_list		*parse_args(int argc, char **argv, int skip, t_flags *flags)
+t_list		*parse_args(int argc, char **argv, int skip, t_flags *flags) //Ето должно быть туть
 {
 	t_list *nodes;
 	t_node *node;
@@ -24,7 +24,7 @@ t_list		*parse_args(int argc, char **argv, int skip, t_flags *flags)
 	{
 		if ((node = get_node(".", flags)))
 			ft_lstaddsort(&nodes, ft_lstnew(node), flags, \
-				(int (*)(const void *, const void *, void *)) &cmp_nodes);
+					  (int (*)(const void *, const void *, void *)) &cmp_nodes);
 	}
 	else
 	{

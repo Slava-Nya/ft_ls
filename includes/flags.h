@@ -6,7 +6,7 @@
 /*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 12:39:39 by azomega           #+#    #+#             */
-/*   Updated: 2020/07/18 12:46:55 by azomega          ###   ########.fr       */
+/*   Updated: 2020/07/18 13:59:57 by dbutterw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ typedef struct			s_flags
 	char				all[N_FLAGS];
 }						t_flags;
 
-static struct s_map_sort g_map_sort[N_SORT_FLAGS] =
+static const struct s_map_sort g_map_sort[N_SORT_FLAGS] =
 {
 	{17, 'c', f_ctime},
 	{33, 't', f_mtime},
@@ -80,7 +80,7 @@ static struct s_map_sort g_map_sort[N_SORT_FLAGS] =
 	{11, 'S', f_size}
 };
 
-static struct s_map_print g_map_print[N_PRINT_FLAGS] =
+static const struct s_map_print g_map_print[N_PRINT_FLAGS] =
 {
 	{3, 'C', f_col},
 	{21, 'g', f_1perl},

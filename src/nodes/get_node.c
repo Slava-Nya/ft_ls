@@ -6,7 +6,7 @@
 /*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 13:03:47 by azomega           #+#    #+#             */
-/*   Updated: 2020/07/18 13:06:52 by dbutterw         ###   ########.fr       */
+/*   Updated: 2020/07/18 13:07:02 by dbutterw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_node	*get_node(char *argv, t_flags *flags)
 	if (errno)
 	{
 		print_error(argv);
+		errno = 0;
 		return (NULL);
 	}
 	type = info.st_mode & S_IFMT;
