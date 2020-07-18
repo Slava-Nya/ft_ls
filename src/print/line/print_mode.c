@@ -1,16 +1,23 @@
-//
-// Created by slavanya on 25.03.2020.
-//
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_mode.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/18 13:18:30 by azomega           #+#    #+#             */
+/*   Updated: 2020/07/18 13:36:21 by azomega          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <print.h>
 #include <libft.h>
 #include <print_line.h>
 #include <sys/xattr.h>
 #include <sys/acl.h>
-# include <sys/stat.h>
+#include <sys/stat.h>
 
-static char		get_file_type(int mode)
+static char	get_file_type(int mode)
 {
 	mode = (mode & S_IFMT);
 	if (S_ISREG(mode))
@@ -31,8 +38,7 @@ static char		get_file_type(int mode)
 		return ('-');
 }
 
-
-static char		get_file_acl(char path[MAX_PATHLEN])
+static char	get_file_acl(char path[MAX_PATHLEN])
 {
 	acl_t	tmp;
 	char	buf[101];
@@ -47,7 +53,7 @@ static char		get_file_acl(char path[MAX_PATHLEN])
 	return (' ');
 }
 
-static void		display_chmod(char *path, char chmod[N_CHMOD], int mode)
+static void	display_chmod(char *path, char chmod[N_CHMOD], int mode)
 {
 	chmod[0] = get_file_type(mode);
 	chmod[1] = (S_IRUSR & mode) ? 'r' : '-';
@@ -69,10 +75,9 @@ static void		display_chmod(char *path, char chmod[N_CHMOD], int mode)
 		chmod[9] = chmod[9] == '-' ? 'T' : 't';
 }
 
-
-void	print_mode(char *path, int mode)
+void		print_mode(char *path, int mode)
 {
-	char chmod[N_CHMOD];
+	char	chmod[N_CHMOD];
 
 	display_chmod(path, chmod, mode);
 	ft_putstr(chmod);

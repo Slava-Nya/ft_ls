@@ -1,14 +1,23 @@
-//
-// Created by youpaw on 27.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_src.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/18 13:12:55 by azomega           #+#    #+#             */
+/*   Updated: 2020/07/18 13:14:22 by azomega          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "print_col.h"
 #include "str_lib.h"
 #include "print.h"
 
-static int	get_mode(t_src *src, char *path)
+static int		get_mode(t_src *src, char *path)
 {
-	int		ret;
-	struct stat info;
+	int			ret;
+	struct stat	info;
 
 	if (!S_ISLNK(src->info.st_mode))
 		return (src->info.st_mode);
@@ -18,10 +27,10 @@ static int	get_mode(t_src *src, char *path)
 	return (ret);
 }
 
-void print_src(t_src *src, char *path, t_print_col *attr)
+void			print_src(t_src *src, char *path, t_print_col *attr)
 {
-	int cnt;
-	int mode;
+	int		cnt;
+	int		mode;
 
 	mode = get_mode(src, path);
 	if (!attr->n)

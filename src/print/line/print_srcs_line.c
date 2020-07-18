@@ -1,15 +1,23 @@
-//
-// Created by slavanya on 21.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_srcs_line.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/18 13:18:46 by azomega           #+#    #+#             */
+/*   Updated: 2020/07/18 13:35:22 by azomega          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <print.h>
-#include <print_line.h>
+#include "print.h"
+#include "print_line.h"
 #include <grp.h>
 #include <pwd.h>
-#include <libft.h>
+#include "libft.h"
 #include "srcs.h"
 
-static void get_call(t_src *src, char *path, t_max_values max, t_flags *flags)
+static void	get_call(t_src *src, char *path, t_max_values max, t_flags *flags)
 {
 	if (flags->all[37])
 	{
@@ -32,21 +40,22 @@ static void get_call(t_src *src, char *path, t_max_values max, t_flags *flags)
 	print_name_endl(src->name, src->info.st_mode);
 }
 
-static void	get_elements(t_avl *srcs, char *path, t_max_values max, t_flags *flags)
+static void	get_elements(t_avl *srcs, char *path, t_max_values max, \
+	t_flags *flags)
 {
-	static t_src *tmp;
+	static t_src	*tmp;
 
 	if (!srcs)
 		return ;
 	get_elements(srcs->left, path, max, flags);
-	tmp = (t_src *) srcs->content;
+	tmp = (t_src *)srcs->content;
 	get_call(tmp, path, max, flags);
 	get_elements(srcs->right, path, max, flags);
 }
 
-void print_srcs_line(t_avl *srcs, char *path, t_flags *flags)
+void		print_srcs_line(t_avl *srcs, char *path, t_flags *flags)
 {
-	t_max_values max;
+	t_max_values	max;
 
 	get_max_values(srcs, &max);
 	if (!flags->all[37])

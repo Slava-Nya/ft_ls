@@ -1,14 +1,22 @@
-//
-// Created by slavanya on 10.04.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_human_readable.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/18 13:18:06 by azomega           #+#    #+#             */
+/*   Updated: 2020/07/18 13:23:52 by azomega          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <libft.h>
 #include <print.h>
 
-static void 	get_itoa(char data[5], int size)
+static void		get_itoa(char data[5], int size)
 {
-	int len;
-	int i;
+	int		len;
+	int		i;
 
 	len = ft_numlen(size);
 	data[3] = 'B';
@@ -26,7 +34,7 @@ static void 	get_itoa(char data[5], int size)
 	}
 }
 
-static char 	get_typesize(int type)
+static char		get_typesize(int type)
 {
 	if (type == 0)
 		return ('B');
@@ -41,7 +49,7 @@ static char 	get_typesize(int type)
 	return (' ');
 }
 
-void	get_human_readable(char data[5], size_t size)
+void			get_human_readable(char data[5], size_t size)
 {
 	int		type;
 	int		rest;

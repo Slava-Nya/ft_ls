@@ -1,12 +1,20 @@
-//
-// Created by slavanya on 30.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_name.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/18 13:38:51 by azomega           #+#    #+#             */
+/*   Updated: 2020/07/18 13:39:00 by azomega          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "print.h"
 #include "str_lib.h"
-# include <sys/stat.h>
+#include <sys/stat.h>
 
-void 	print_name(char *name, int mode)
+void	print_name(char *name, int mode)
 {
 	if (S_ISREG(mode) && (mode & S_IXUSR))
 		ft_putstr(COL_EXE);

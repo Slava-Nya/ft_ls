@@ -1,6 +1,14 @@
-//
-// Created by youpaw on 17.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_error.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/18 13:38:24 by azomega           #+#    #+#             */
+/*   Updated: 2020/07/18 13:38:37 by azomega          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "print.h"
 #include "str_lib.h"
@@ -9,7 +17,7 @@
 
 static void	print_error_str(void)
 {
-	int cnt;
+	int		cnt;
 
 	cnt = 0;
 	while (cnt < N_ERRORS && errno != g_errors[cnt].code)
@@ -19,7 +27,7 @@ static void	print_error_str(void)
 	ft_putstr_fd(g_errors[cnt].str, 2);
 }
 
-void	print_error(char *path)
+void		print_error(char *path)
 {
 	ft_putstr_fd("ls: ", 2);
 	print_error_str();
