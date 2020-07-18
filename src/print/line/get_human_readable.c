@@ -45,10 +45,8 @@ void	get_human_readable(char data[5], size_t size)
 {
 	int		type;
 	int		rest;
-	char tmp;
 
 	type = 0;
-	int len = 2;
 	while (size >= 1000)
 	{
 		rest = (size / 100) % 10;
