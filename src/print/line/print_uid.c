@@ -9,5 +9,4 @@
 void	print_uid(char *uid, int max_uid)
 {
 	print_col(uid, (int (*)(void *)) &ft_putstr, max_uid);
-	ft_putstr("  ");
 }

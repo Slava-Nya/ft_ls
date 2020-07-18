@@ -8,5 +8,6 @@
 
 void 	print_gid(char *gid, int max_gid)
 {
+	ft_putstr("  ");
 	print_col(gid, (int (*)(void *)) ft_putstr, max_gid);
 }
