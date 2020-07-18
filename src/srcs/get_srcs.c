@@ -1,12 +1,21 @@
-//
-// Created by youpaw on 12.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_srcs.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/18 13:07:29 by azomega           #+#    #+#             */
+/*   Updated: 2020/07/18 13:09:56 by azomega          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "srcs.h"
 #include "str_lib.h"
 
 static size_t	get_path(char path[MAX_PATHLEN], char *argv)
 {
-	size_t len;
+	size_t	len;
 
 	len = ft_strlen(argv);
 	ft_strcpy(path, argv);
@@ -19,9 +28,9 @@ t_avl			*get_srcs(DIR *dir, char *argv, t_flags *flags)
 {
 	struct dirent	*dir_read;
 	char			path[MAX_PATHLEN];
-	size_t 			len;
+	size_t			len;
 	t_avl			*srcs;
-	struct stat info;
+	struct stat		info;
 
 	srcs = NULL;
 	len = get_path(path, argv);

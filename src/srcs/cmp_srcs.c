@@ -1,13 +1,21 @@
-//
-// Created by youpaw on 12.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cmp_srcs.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/18 13:07:09 by azomega           #+#    #+#             */
+/*   Updated: 2020/07/18 13:09:05 by azomega          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "srcs.h"
 #include "str_lib.h"
 
-int 	cmp_srcs(t_src  *src1, t_src *src2, t_flags *flags)
+int		cmp_srcs(t_src *src1, t_src *src2, t_flags *flags)
 {
-	long ret;
+	long	ret;
 
 	if (flags->sort == f_unset)
 		return (-1);
