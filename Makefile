@@ -6,7 +6,7 @@
 #    By: hlorrine <hlorrine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/21 22:10:19 by hlorrine          #+#    #+#              #
-#    Updated: 2020/07/17 22:56:47 by dbutterw         ###   ########.fr        #
+#    Updated: 2020/07/18 19:39:11 by azomega          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS :=	main.c					\
 		print/print_col.c 			\
 		print/print_col_right.c 			\
 		print/print_dir_node.c 			\
+		print/print_dir_head.c	\
 		print/print_error.c 			\
 		print/print_file_node.c 			\
 		print/print_name.c 			\
