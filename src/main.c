@@ -25,8 +25,9 @@ int     main(int argc, char **argv)
 	flags->all[37] = 1;
 	flags->print = f_1perl;
 	skip = parse_flags(flags, argc, argv);
-	quick_sort((void **) argv, skip, argc - 1, \
-		(int (*)(const void *, const void *)) ft_strcmp);
+	if (flags->sort != f_unset)
+		quick_sort((void **) argv, skip, argc - 1, \
+			(int (*)(const void *, const void *)) ft_strcmp);
 	nodes = parse_args(argc, argv, skip, flags);
 	if (nodes)
 	{

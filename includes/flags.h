@@ -64,6 +64,7 @@ struct					s_map_print
 
 typedef struct			s_flags
 {
+	int 				is_error;
 	enum e_print_flags	print;
 	enum e_sort_flags	sort;
 	enum e_sort_flags	display;

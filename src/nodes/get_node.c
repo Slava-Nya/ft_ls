@@ -32,6 +32,7 @@ t_node	*get_node(char *argv, t_flags *flags)
 	{
 		print_error(argv);
 		errno = 0;
+		flags->is_error = 1;
 		return (NULL);
 	}
 	type = info.st_mode & S_IFMT;

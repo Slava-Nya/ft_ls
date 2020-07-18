@@ -18,7 +18,7 @@ int		cmp_srcs(t_src *src1, t_src *src2, t_flags *flags)
 	long	ret;
 
 	if (flags->sort == f_unset)
-		return (-1);
+		return (1);
 	ret = 0;
 	if (flags->sort == f_mtime)
 		ret = src2->info.st_mtimespec.tv_sec - src1->info.st_mtimespec.tv_sec;

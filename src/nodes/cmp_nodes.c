@@ -18,7 +18,7 @@ int		cmp_nodes(t_node *node1, t_node *node2, t_flags *flags)
 	long	ret;
 
 	if (flags->sort == f_unset)
-		return (-1);
+		return (1);
 	ret = 0;
 	if (flags->sort == f_mtime)
 		ret = node2->info.st_mtimespec.tv_sec - node1->info.st_mtimespec.tv_sec;

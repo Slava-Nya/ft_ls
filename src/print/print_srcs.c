@@ -22,4 +22,3 @@ void	print_srcs(t_avl *srcs, char *path, t_flags *flags)
 	else
 		print_srcs_line(srcs, path, flags);
 }
-K

@@ -14,9 +14,9 @@
 #include "list_lib.h"
 #include "print.h"
 
-static void	init_print(t_list *nodes, t_print *attr)
+static void init_print(t_list *nodes, t_print *attr, t_flags *flags)
 {
-	attr->need_head = nodes->next ? 1 : 0;
+	attr->need_head = nodes->next || flags->is_error ? 1 : 0;
 	attr->need_space = 0;
 }
 
@@ -25,7 +25,7 @@ void		print_args(t_list *nodes, t_flags *flags)
 	t_print	attr;
 	t_list	*head;
 
-	init_print(nodes, &attr);
+	init_print(nodes, &attr, flags);
 	print_node(nodes->content, flags, &attr);
 	head = nodes->next;
 	while (head)

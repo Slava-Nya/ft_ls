@@ -6,7 +6,7 @@
 /*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 13:18:46 by azomega           #+#    #+#             */
-/*   Updated: 2020/07/18 13:35:22 by azomega          ###   ########.fr       */
+/*   Updated: 2020/07/18 19:12:45 by dbutterw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ void		print_srcs_line(t_avl *srcs, char *path, t_flags *flags)
 	t_max_values	max;
 
 	get_max_values(srcs, &max);
-	if (!flags->all[37])
+	if (!flags->all[37] && ft_strlen(path))
+	{
+		ft_putendl(path);
 		print_total(max.total);
+	}
 	get_elements(srcs, path, max, flags);
 }
