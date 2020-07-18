@@ -11,12 +11,7 @@ void 	print_total(t_flags *flags, size_t total)
 	char data[5];
 
 	ft_putstr("total ");
-	if (flags->all[22])
-	{
-		get_human_readable(data, total);
-		ft_putstr(data);
-	}
-	else
-		ft_putnbr(total);
+	total /= BLOCK_SIZE;
+	ft_putnbr(total);
 	ft_putchar('\n');
 }

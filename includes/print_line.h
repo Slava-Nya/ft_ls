@@ -7,7 +7,7 @@
 
 # define N_CHMOD 12
 # define HALF_YEAR 15778800
-# define LN_PADDING 1
+# define BLOCK_SIZE 1024
 
 #include "srcs.h"
 #include <zconf.h>
