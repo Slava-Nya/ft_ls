@@ -38,7 +38,7 @@ void			print_gid(char *gid, int max_gid);
 void			print_size(struct stat info, t_max_values max, t_flags *flags);
 void			print_date(struct stat info, t_flags *flags);
 void			print_link(char *path, t_src *src);
-void			print_total(t_flags *flags, size_t total);
+void			print_total(size_t total);
 void			get_human_readable(char data[5], size_t size);
 
 #endif

@@ -48,7 +48,7 @@ void print_srcs_line(t_avl *srcs, char *path, t_flags *flags)
 	t_max_values max;
 
 	get_max_values(srcs, &max);
-	if (flags->all[25])
-		print_total(flags, max.total);
+	if (!flags->all[37])
+		print_total(max.total);
 	get_elements(srcs, path, max, flags);
 }

@@ -3,10 +3,9 @@
 //
 
 #include <libft.h>
-#include <flags.h>
 #include <print_line.h>
 
-void 	print_total(t_flags *flags, size_t total)
+void print_total(size_t total)
 {
 	ft_putstr("total ");
 	ft_putnbr(total);
