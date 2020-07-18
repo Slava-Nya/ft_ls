@@ -18,7 +18,7 @@ void	init_dir_path(char *dir_path, char *path)
 
 	len = ft_strlen(path);
 	ft_strcpy(dir_path, path);
-	if (dir_path[len - 1] != '/')
+	if (len && dir_path[len - 1] != '/')
 	{
 		dir_path[len++] = '/';
 		dir_path[len] = '\0';
