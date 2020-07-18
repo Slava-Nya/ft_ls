@@ -31,8 +31,7 @@ void		print_error(char *path)
 {
 	ft_putstr_fd("ls: ", 2);
 	print_error_str();
-	ft_putstr_fd(" '", 2);
 	ft_putstr_fd(path, 2);
-	ft_putstr_fd("': ", 2);
+	ft_putstr_fd(": ", 2);
 	ft_putendl_fd(strerror(errno), 2);
 }

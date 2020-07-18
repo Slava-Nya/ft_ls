@@ -37,8 +37,8 @@ struct			s_errors{
 };
 
 static const struct s_errors g_errors[N_ERRORS] = {
-	{2, "cannot access"},
-	{13, "cannot open directory"}
+	{2, ""},
+	{13, ""}
 };
 
 void			init_dir_path(char *dir_path, char *path);
