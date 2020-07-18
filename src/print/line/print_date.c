@@ -6,7 +6,7 @@
 /*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 13:18:15 by azomega           #+#    #+#             */
-/*   Updated: 2020/07/18 20:06:28 by dbutterw         ###   ########.fr       */
+/*   Updated: 2020/07/18 20:33:37 by dbutterw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include <sys/stat.h>
 #include <time.h>
 #include <unistd.h>
-#include <libft.h>
+#include "libft.h"
+#include "str_lib.h"
 
 static time_t	get_flag_time(struct stat info, t_flags *flags)
 {
@@ -38,7 +39,12 @@ void			print_date(struct stat info, t_flags *flags)
 	time(&cur_time);
 	write(1, date + 3, 8);
 	if (src_time > cur_time || (cur_time - src_time) > HALF_YEAR)
-		write(1, date + 19, 5);
+	{
+		ft_putstr(" ");
+		date = ft_strtrim(date + 19);
+		ft_putstr(date);
+		free(date);
+	}
 	else
 		write(1, date + 11, 5);
 	ft_putchar(' ');
