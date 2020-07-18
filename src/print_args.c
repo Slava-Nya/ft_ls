@@ -1,13 +1,21 @@
-//
-// Created by youpaw on 16.03.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_args.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/18 13:42:07 by azomega           #+#    #+#             */
+/*   Updated: 2020/07/18 13:42:17 by azomega          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "flags.h"
 #include "list_lib.h"
 #include "mem_lib.h"
 #include "print.h"
 
-static void init_print(t_list *nodes, t_print *attr)
+static void	init_print(t_list *nodes, t_print *attr)
 {
 	attr->need_head = nodes->next ? 1 : 0;
 	attr->need_space = 0;
