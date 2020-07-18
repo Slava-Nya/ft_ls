@@ -6,7 +6,7 @@
 /*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 12:39:39 by azomega           #+#    #+#             */
-/*   Updated: 2020/07/18 13:59:57 by dbutterw         ###   ########.fr       */
+/*   Updated: 2020/07/18 21:03:00 by azomega          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ struct					s_map_print
 
 typedef struct			s_flags
 {
-	int 				is_error;
+	int					is_error;
 	enum e_print_flags	print;
 	enum e_sort_flags	sort;
 	enum e_sort_flags	display;

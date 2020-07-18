@@ -6,7 +6,7 @@
 /*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 13:38:05 by azomega           #+#    #+#             */
-/*   Updated: 2020/07/18 19:52:57 by dbutterw         ###   ########.fr       */
+/*   Updated: 2020/07/18 21:06:18 by azomega          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	walk_srcs(t_avl *srcs, char dir_path[MAX_PATHLEN], \
 	walk_srcs(srcs->right, dir_path, flags, attr);
 }
 
-static void print_dir_head(char *path, t_print *attr)
+static void	print_dir_head(char *path, t_print *attr)
 {
 	if (attr->need_space)
 		ft_putstr("\n");

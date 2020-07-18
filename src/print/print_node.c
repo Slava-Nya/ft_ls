@@ -6,7 +6,7 @@
 /*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 13:39:13 by azomega           #+#    #+#             */
-/*   Updated: 2020/07/18 19:52:57 by dbutterw         ###   ########.fr       */
+/*   Updated: 2020/07/18 21:03:32 by azomega          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <dirent.h>
 #include "str_lib.h"
 
-static void print_dir_head(char *path, t_print *attr)
+static void		print_dir_head(char *path, t_print *attr)
 {
 	if (attr->need_space)
 		ft_putstr("\n");
@@ -43,7 +43,7 @@ static int		get_dir_srcs(t_node *node, t_flags *flags, t_print *attr)
 	return (0);
 }
 
-void	print_node(t_node *node, t_flags *flags, t_print *attr)
+void			print_node(t_node *node, t_flags *flags, t_print *attr)
 {
 	if (*node->path)
 	{

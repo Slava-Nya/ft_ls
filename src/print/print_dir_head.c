@@ -6,14 +6,14 @@
 /*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 19:33:45 by azomega           #+#    #+#             */
-/*   Updated: 2020/07/18 19:40:09 by azomega          ###   ########.fr       */
+/*   Updated: 2020/07/18 21:05:21 by azomega          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str_lib.h"
 #include "print.h"
 
-void print_dir_head(char *path, t_print *attr)
+void	print_dir_head(char *path, t_print *attr)
 {
 	if (attr->need_space)
 		ft_putstr("\n");

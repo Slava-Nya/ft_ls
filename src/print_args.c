@@ -6,7 +6,7 @@
 /*   By: azomega <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 13:42:07 by azomega           #+#    #+#             */
-/*   Updated: 2020/07/18 13:42:17 by azomega          ###   ########.fr       */
+/*   Updated: 2020/07/18 21:07:31 by azomega          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "list_lib.h"
 #include "print.h"
 
-static void init_print(t_list *nodes, t_print *attr, t_flags *flags)
+static void	init_print(t_list *nodes, t_print *attr, t_flags *flags)
 {
 	attr->need_head = nodes->next || flags->is_error ? 1 : 0;
 	attr->need_space = 0;
